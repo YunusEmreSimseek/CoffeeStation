@@ -1,0 +1,9 @@
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.csproj.AssemblyReference.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.AssemblyInfoInputs.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.AssemblyInfo.cs
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.csproj.CoreCompileInputs.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.MvcApplicationPartsAssemblyInfo.cs
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.MvcApplicationPartsAssemblyInfo.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.RazorAssemblyInfo.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/netcoreapp3.1/CoffeeStation.IdentityServer.RazorAssemblyInfo.cs

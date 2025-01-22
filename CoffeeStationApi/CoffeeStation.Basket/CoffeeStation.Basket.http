@@ -1,0 +1,6 @@
+@CoffeeStation.Basket_HostAddress = http://localhost:5271
+
+GET {{CoffeeStation.Basket_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

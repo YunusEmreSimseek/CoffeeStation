@@ -1,0 +1,22 @@
+{
+    "compounds": [
+        {
+            "name": "Compound",
+            "configurations": []
+        }
+    ],
+    "configurations": [
+        {
+            "name": "C#: CoffeeStation.Catalog",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Catalog/CoffeeStation.Catalog.csproj",
+        },
+        {
+            "name": "C#: CoffeeStation.IdentityServer",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.IdentityServer/CoffeeStation.IdentityServer.csproj",
+        }
+    ]
+}
