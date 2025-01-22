@@ -214,3 +214,4 @@
 /Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/net8.0/CoffeeStation.IdentityServer.pdb
 /Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/net8.0/CoffeeStation.IdentityServer.genruntimeconfig.cache
 /Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/net8.0/ref/CoffeeStation.IdentityServer.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.IdentityServer/obj/Debug/net8.0/CoffeeStation.IdentityServer.sourcelink.json
