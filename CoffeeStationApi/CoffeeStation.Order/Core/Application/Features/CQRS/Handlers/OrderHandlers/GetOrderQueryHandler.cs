@@ -20,6 +20,10 @@ namespace Application.Features.CQRS.Handlers.OrderHandlers
         public async Task<List<GetOrderQueryResult>> Handle()
         {
             var values = await _repository.GetAllAsync();
+            if (values == null)
+            {
+                return [];
+            }
             return values
                 .Select(x => new GetOrderQueryResult
                 {

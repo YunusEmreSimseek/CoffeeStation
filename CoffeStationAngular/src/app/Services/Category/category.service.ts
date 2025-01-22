@@ -8,7 +8,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CategoryService {
 
-  private baseUrl = 'http://localhost:5000/services/catalog/categories';
+  // private baseUrl = 'http://localhost:5000/services/catalog/categories';
+  private baseUrl = 'http://localhost:2500/api/category';
 
 
   constructor(private http: HttpClient) { }

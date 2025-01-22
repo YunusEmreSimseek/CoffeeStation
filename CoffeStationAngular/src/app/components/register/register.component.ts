@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../Services/Auth/auth.service';
 import { Router } from '@angular/router';
 import { RegisterUser } from '../../Models/Register/RegisterUser';
+import { UserService } from '../../Services/User/user.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _authService: AuthService,
+    private _userService: UserService,
     private router: Router
   ) {}
 
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
     }
 
     const formData: RegisterUser = this.registerForm.value;
-    this._authService.registerUser(formData).subscribe({
+    this._userService.registerUser(formData).subscribe({
       next: (response) => {
         alert(response);
         console.log(response);

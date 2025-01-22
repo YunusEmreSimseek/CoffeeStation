@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { OrderService } from '../../../Services/Order/order.service';
 import { CoffeeService } from '../../../Services/Coffee/coffee.service';
 import { AddressService } from '../../../Services/Address/address.service';
-import { OrderyModel } from '../../../Models/Order/OrderModels';
-import { CoffeeModel } from '../../../Models/Coffee/coffee.model';
+import { OrderModel } from '../../../Models/Order/OrderModels';
+import { ProductModel } from '../../../Models/Coffee/coffee.model';
 import { AddressModel } from '../../../Models/Adress/AdressModels';
 import { firstValueFrom } from 'rxjs';
 
@@ -50,7 +50,7 @@ export class OrdersComponent implements OnInit {
   async loadOrders() {
     try {
       // 1) Tüm siparişleri çek
-      const orders: OrderyModel[] = await firstValueFrom(this._orderService.getAllOrders());
+      const orders: OrderModel[] = await firstValueFrom(this._orderService.getAllOrders());
 
       // 2) Her order için productNames ve address bilgisi al
       const orderViewModels = await Promise.all(
@@ -58,8 +58,8 @@ export class OrdersComponent implements OnInit {
           // Product Id’ler -> Product name listesi
           const productNames = await Promise.all(
             order.productIds.map(async pid => {
-              const product: CoffeeModel = await firstValueFrom(this._coffeeService.getCoffeeById(pid));
-              return product.name;
+              const product: ProductModel = await firstValueFrom(this._coffeeService.getCoffeeById(pid));
+              return product.productName;
             })
           );
 
@@ -72,7 +72,7 @@ export class OrdersComponent implements OnInit {
 
           // Birleştir
           const vm: OrderViewModel = {
-            orderyId: order.orderyId,
+            orderyId: order.orderId,
             userId: order.userId,
             productIds: order.productIds,
             productNames: productNames,

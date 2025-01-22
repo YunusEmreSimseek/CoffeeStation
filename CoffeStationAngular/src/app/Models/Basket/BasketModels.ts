@@ -1,26 +1,38 @@
-import { CoffeeBasketDto } from "../Coffee/coffee.model";
 
-export class BasketTotal {
+// export class BasketTotal {
+//   userId: string;
+//   // discountCode: string;
+//   // discountRate?: number;
+//   basketItems: CoffeeBasketDto[];
+//   get totalPrice(): number {
+//     return this.basketItems.reduce((sum, item) => sum + item.productPrice * item.quantity, 0);
+//   }
+
+//   constructor(
+//     userId: string,
+//     //  discountCode: string,
+//       // discountRate: number,
+//        basketItems: CoffeeBasketDto[]
+//   ) {
+//     this.userId = userId;
+//     // this.discountCode = discountCode;
+//     // this.discountRate = discountRate;
+//     this.basketItems = basketItems;
+//   }
+
+// }
+
+export interface BasketModel {
   userId: string;
-  // discountCode: string;
-  // discountRate?: number;
-  basketItems: CoffeeBasketDto[];
-  get totalPrice(): number {
-    return this.basketItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  }
+  basketItems: BasketItemModel[];
+  totalPrice: number;
+}
 
-  constructor(
-    userId: string,
-    //  discountCode: string,
-      // discountRate: number,
-       basketItems: CoffeeBasketDto[]
-  ) {
-    this.userId = userId;
-    // this.discountCode = discountCode;
-    // this.discountRate = discountRate;
-    this.basketItems = basketItems;
-  }
-
+export interface BasketItemModel {
+  productId: string;
+  productName: string;
+  quantity: number;
+  price: number;
 }
 
 

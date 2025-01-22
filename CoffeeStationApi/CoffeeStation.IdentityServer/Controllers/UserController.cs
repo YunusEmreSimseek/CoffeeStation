@@ -222,5 +222,20 @@ namespace CoffeeStation.IdentityServer.Controllers
             return Ok("Kullanıcı başarıyla güncellendi.");
         }
 
+        [AllowAnonymous]
+        [HttpGet("take-anonymous-token")]
+        public async Task<IActionResult> TakeAnonymousToken(){
+            var tokenResponse = await _tokenService.TakeAnonymousToken();
+            if (tokenResponse == null) return Unauthorized("Token oluşturulamadı.");
+            return Ok(tokenResponse);
     }
+        
+
+        [Authorize]
+        [HttpGet("logout")]
+        public async Task<IActionResult> Logout(){
+            await _signInManager.SignOutAsync();
+            return Ok("Çıkış yapıldı.");
+        }
+}
 }

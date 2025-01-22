@@ -31,7 +31,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptor
 import { LoginComponent } from './components/login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthInterceptor } from './auth.interceptor';
-import { AuthService } from './Services/Auth/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 

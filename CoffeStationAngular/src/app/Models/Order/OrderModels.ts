@@ -1,7 +1,7 @@
 import { AddressModel } from "../Adress/AdressModels";
 
-export interface OrderyModel {
-    orderyId: string;
+export interface OrderModel {
+    orderId: string;
     userId: string;
     productIds: string[];
     totalPrice: number;

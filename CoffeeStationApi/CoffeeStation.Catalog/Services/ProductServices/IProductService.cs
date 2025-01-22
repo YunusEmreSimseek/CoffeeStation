@@ -17,5 +17,7 @@ namespace CoffeeStation.Catalog.Services.ProductServices
         Task DeleteProductAsync(string id);
 
         Task<GetByIdProductDto> GetByIdProductAsync(string id);
+
+        Task<GetByCategoryIdProductDto> GetByCategoryIdProductAsync(string id);
     }
 }

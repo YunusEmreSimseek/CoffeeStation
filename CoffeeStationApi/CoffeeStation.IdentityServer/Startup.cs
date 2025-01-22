@@ -37,7 +37,7 @@ namespace CoffeeStation.IdentityServer
             services.AddControllersWithViews();
             services.AddCors(options =>
                 {
-                    options.AddPolicy("AllowAll",
+                    options.AddPolicy("AllowAllOrigins",
                         builder =>
                         {
                             builder.AllowAnyOrigin()
@@ -102,7 +102,7 @@ namespace CoffeeStation.IdentityServer
 
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseCors("AllowAll");
+            app.UseCors("AllowAllOrigins");
             app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();

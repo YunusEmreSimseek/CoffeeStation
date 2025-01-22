@@ -19,7 +19,7 @@ export interface UserDto {
 })
 export class UsersComponent implements OnInit {
   // Kullanıcılar için sütunlar
-  displayedColumns: string[] = ['id', 'userName', 'email', 'name', 'surname', 'role', 'actions'];
+  displayedColumns: string[] = ['id', 'username', 'email', 'name', 'surname', 'role', 'actions'];
   // Kullanıcılar için veri kaynağı
   dataSource: GetUserModel[] = [];
   // Kullanıcılar

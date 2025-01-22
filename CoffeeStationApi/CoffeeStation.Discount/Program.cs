@@ -14,6 +14,17 @@ builder
         opt.RequireHttpsMetadata = false;
     });
 
+// CORS ayarlarını ekleyin
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddTransient<IDiscountService, DiscountService>();
 
 // ConnectionString'i alıyoruz
@@ -40,6 +51,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAllOrigins");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

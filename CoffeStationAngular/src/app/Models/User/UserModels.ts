@@ -1,6 +1,6 @@
 export interface GetUserModel {
   id: string;
-  userName: string;
+  username: string;
   name: string;
   surname: string;
   email: string;
@@ -8,7 +8,7 @@ export interface GetUserModel {
 }
 
 export interface CreateUserModel {
-  userName: string;
+  username: string;
   name: string;
   surname: string;
   email: string;

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BasketService } from '../../../Services/Basket/basket.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { BasketTotal } from '../../../Models/Basket/BasketModels';
-import { CoffeeBasketDto } from '../../../Models/Coffee/coffee.model';
 import { DiscountService } from '../../../Services/Discount/discount.service';
 import { AddressService } from '../../../Services/Address/address.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,6 +10,7 @@ import { OrderService } from '../../../Services/Order/order.service';
 import { CreateOrderModel } from '../../../Models/Order/OrderModels';
 import { AddressModel } from '../../../Models/Adress/AdressModels';
 import { AppConsts } from '../../../../appConsts';
+import { BasketItemModel, BasketModel } from '../../../Models/Basket/BasketModels';
 
 @Component({
   selector: 'app-basket',
@@ -20,11 +19,11 @@ import { AppConsts } from '../../../../appConsts';
 })
 export class BasketComponent implements OnInit {
 
-  dataSource: MatTableDataSource<CoffeeBasketDto> = new MatTableDataSource<CoffeeBasketDto>([]);
+  dataSource: MatTableDataSource<BasketItemModel> = new MatTableDataSource<BasketItemModel>([]);
   // tabloda gösterilecek sütunlar
   displayedColumns: string[] = ['image', 'name', 'price', 'quantity', 'total', 'actions'];
   totalPrice: number = 0;
-  private basketTotal: BasketTotal = new BasketTotal('', []);
+  private basket: BasketModel = { userId: '', basketItems: [], totalPrice: 0};
   isCouponApplied: boolean = false;
   couponCode: string = '';
   discountRate: number = 0;
@@ -42,8 +41,8 @@ export class BasketComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._basketService.getMyBasket().subscribe(data => {
-      this.basketTotal = data;
+    this._basketService.getUserBasket().subscribe(data => {
+      this.basket = data;
       this.dataSource.data = data.basketItems;
       this.calculateTotal();
     });
@@ -52,11 +51,11 @@ export class BasketComponent implements OnInit {
 
 
   // Miktarı Azaltma
-  decreaseQuantity(item: CoffeeBasketDto): void {
-    const index = this.basketTotal.basketItems.indexOf(item);
+  decreaseQuantity(item: BasketItemModel): void {
+    const index = this.basket.basketItems.indexOf(item);
     if (item.quantity > 1) {
-      this.basketTotal.basketItems[index].quantity -= 1;
-      this._basketService.updateBasket(this.basketTotal).subscribe(
+      this.basket.basketItems[index].quantity -= 1;
+      this._basketService.updateBasket(this.basket).subscribe(
         data => {
           console.log(data);
           // Miktarı güncelle
@@ -65,18 +64,18 @@ export class BasketComponent implements OnInit {
       );
     }
     else {
-      this.removeItem(item.id);
+      this.removeItem(item.productId);
     }
   }
 
   // Miktarı Artırma
-  increaseQuantity(item: CoffeeBasketDto): void {
-    const index = this.basketTotal.basketItems.indexOf(item);
+  increaseQuantity(item: BasketItemModel): void {
+    const index = this.basket.basketItems.indexOf(item);
     if (index > -1) {
       // Eğer kahve sepette varsa miktarını artır
-      this.basketTotal.basketItems[index].quantity += 1;
+      this.basket.basketItems[index].quantity += 1;
 
-      this._basketService.updateBasket(this.basketTotal).subscribe(
+      this._basketService.updateBasket(this.basket).subscribe(
         data => {
           console.log(data);
           // Miktarı güncelle
@@ -89,9 +88,9 @@ export class BasketComponent implements OnInit {
 
   // Sepetten Kahve Kaldırma
   removeItem(coffeeId: string): void {
-    const currentItems = this.basketTotal.basketItems.filter(item => item.id !== coffeeId);
-    this.basketTotal.basketItems = currentItems;
-    this._basketService.updateBasket(this.basketTotal).subscribe(
+    const currentItems = this.basket.basketItems.filter(item => item.productId !== coffeeId);
+    this.basket.basketItems = currentItems;
+    this._basketService.updateBasket(this.basket).subscribe(
       data => {
         this.dataSource.data = currentItems;
         this.calculateTotal();
@@ -111,7 +110,7 @@ export class BasketComponent implements OnInit {
 
   // Toplam Fiyatı Hesaplama
   calculateTotal(): void {
-    this.totalPrice = this.basketTotal.basketItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    this.totalPrice = this.basket.basketItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   }
 
   // Kupon Uygulama
@@ -146,7 +145,7 @@ export class BasketComponent implements OnInit {
         if (err.error === 'Adres bulunamadi.'){
           const dialogRef = this.dialog.open(AddAddressDialogComponent, {
             width: '400px',
-            data: { userId: this.basketTotal.userId } // Diyaloğa userId geçebiliriz
+            data: { userId: this.basket.userId } // Diyaloğa userId geçebiliriz
           });
 
           // Diyalog kapandıktan sonra
@@ -163,9 +162,9 @@ export class BasketComponent implements OnInit {
 
   // Sipariş Oluşturma
   createOrder(addressId: number){
-    const productIds = this.basketTotal.basketItems.map(item => item.id);
+    const productIds = this.basket.basketItems.map(item => item.productId);
      const order: CreateOrderModel = {
-      userId: this.basketTotal.userId,
+      userId: this.basket.userId,
       productIds: productIds,
       totalPrice: this.totalPrice,
       addressId: addressId

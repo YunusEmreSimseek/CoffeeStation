@@ -5,7 +5,7 @@ import { CoffeeService } from '../../../Services/Coffee/coffee.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CategoryModel } from '../../../Models/Category/CategoryModel';
 import { CategoryService } from '../../../Services/Category/category.service';
-import { CreateCoffeeModel } from '../../../Models/Coffee/coffee.model';
+import { CreateProductModel } from '../../../Models/Coffee/coffee.model';
 import { AppConsts } from '../../../../appConsts';
 
 @Component({
@@ -25,9 +25,9 @@ export class AddCoffeeDialogComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {
     this.coffeeForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      price: [0, [Validators.required, Validators.min(0)]],
+      productName: ['', Validators.required],
+      productDescription: ['', Validators.required],
+      productPrice: [0, [Validators.required, Validators.min(0)]],
       categoryId: ['', Validators.required]
     });
   }
@@ -52,8 +52,8 @@ export class AddCoffeeDialogComponent implements OnInit {
       return;
     }
 
-    const newCoffee: CreateCoffeeModel = this.coffeeForm.value;
-    newCoffee.image = AppConsts.coffeeImageUrl;
+    const newCoffee: CreateProductModel = this.coffeeForm.value;
+    newCoffee.productImageUrl = AppConsts.coffeeImageUrl;
     this._coffeeService.addCoffee(newCoffee).subscribe({
       next: () => {
         this.snackBar.open('Kahve başarıyla eklendi.', 'Kapat', {

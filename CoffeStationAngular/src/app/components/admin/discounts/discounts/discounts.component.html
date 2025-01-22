@@ -27,12 +27,6 @@
         <td mat-cell *matCellDef="let discount">{{ discount.rate }}%</td>
       </ng-container>
 
-      <!-- İndirim Oranı Kolonu -->
-      <ng-container matColumnDef="isActive">
-        <th mat-header-cell *matHeaderCellDef> Aktifmi </th>
-        <td mat-cell *matCellDef="let discount">{{ discount.isActive }}</td>
-      </ng-container>
-
       <!-- İşlem Kolonu -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> İşlem </th>

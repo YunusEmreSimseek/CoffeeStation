@@ -16,6 +16,17 @@ builder
         opt.RequireHttpsMetadata = false;
     });
 
+// CORS ayarlarını ekleyin
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 //Servisler için konfigürasyon
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
@@ -48,6 +59,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+app.UseCors("AllowAllOrigins");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();

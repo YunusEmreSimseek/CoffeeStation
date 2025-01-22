@@ -45,6 +45,12 @@ namespace CoffeeStation.Catalog.Services.ProductServices
             return _mapper.Map<GetByIdProductDto>(values);
         }
 
+        public async Task<GetByCategoryIdProductDto> GetByCategoryIdProductAsync(string id)
+        {
+            var values = await _productCollection.Find<Product>(x => x.CategoryId == id).FirstOrDefaultAsync();
+            return _mapper.Map<GetByCategoryIdProductDto>(values);
+        }
+
         public async Task UpdateProductAsync(UpdateProductDto updateProductDto)
         {
             var values = _mapper.Map<Product>(updateProductDto);

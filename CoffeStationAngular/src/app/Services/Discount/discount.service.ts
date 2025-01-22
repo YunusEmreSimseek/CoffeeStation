@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class DiscountService {
 
-  private baseUrl = AppConsts.remoteUrlBase + '/discount/discount';
+  // private baseUrl = AppConsts.remoteUrlBase + '/discount/discount';
+  private baseUrl = 'http://localhost:2502/api/discount';
 
   constructor(private http: HttpClient) { }
 

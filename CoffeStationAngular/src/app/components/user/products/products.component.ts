@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BasketService } from '../../../Services/Basket/basket.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BasketTotal } from '../../../Models/Basket/BasketModels';
 import { StorageService } from '../../../Services/Storage/storage.service';
 import { CoffeeService } from '../../../Services/Coffee/coffee.service';
-import { CoffeeBasketDto, CoffeeModel } from '../../../Models/Coffee/coffee.model';
+import { ProductModel } from '../../../Models/Coffee/coffee.model';
 import { AppConsts } from '../../../../appConsts';
 import { CategoryService } from '../../../Services/Category/category.service';
+import { BasketItemModel, BasketModel } from '../../../Models/Basket/BasketModels';
 
 @Component({
   selector: 'app-products',
@@ -16,8 +16,8 @@ import { CategoryService } from '../../../Services/Category/category.service';
 })
 export class ProductsComponent implements OnInit {
   categoryName: string = '';
-  coffees: CoffeeModel[] = [];
-  private basketTotal: BasketTotal = new BasketTotal('', []);
+  coffees: ProductModel[] = [];
+  private basket: BasketModel = { userId: '', basketItems: [], totalPrice: 0 };
 
 
   constructor(
@@ -55,9 +55,9 @@ export class ProductsComponent implements OnInit {
 
   // Sepet bilgisini getir
   getBasket(){
-    this._basketService.getMyBasket().subscribe({
+    this._basketService.getUserBasket().subscribe({
       next: (value) => {
-        this.basketTotal = value;
+        this.basket = value;
       },
       error: (err) => {
         console.log('GetMyBasket Error:', err.error);
@@ -66,7 +66,7 @@ export class ProductsComponent implements OnInit {
   }
 
   // Sepete ekleme işlemi
-  addToBasket(coffee: CoffeeModel): void {
+  addToBasket(coffee: ProductModel): void {
     // Eğer kullanıcı giriş yapmamışsa uyarı ver
     if (this._storageService.getUserId() == null) {
       this.snackBar.open('Sepete ekleme işlemi yapabilmek için giriş yapmalısınız!', 'Kapat', {
@@ -76,27 +76,24 @@ export class ProductsComponent implements OnInit {
     }
 
     // Sepette aynı kahveden var mı kontrol et
-    const itemIndex = this.basketTotal.basketItems.findIndex(item => item.id === coffee.id);
+    const itemIndex = this.basket.basketItems.findIndex(item => item.productId === coffee.productId);
     if (itemIndex > -1) {
       // Eğer kahve zaten sepette varsa miktarını artır
-      this.basketTotal.basketItems[itemIndex].quantity += 1;
+      this.basket.basketItems[itemIndex].quantity += 1;
     } else {
       // Eğer kahve sepette yoksa ekle
-      this.basketTotal.userId = this._storageService.getUserId() ?? '';
-      const coffeeDto: CoffeeBasketDto = {
-        id: coffee.id,
-        name: coffee.name,
-        description: coffee.description,
-        image: coffee.image,
-        price: coffee.price,
-        categoryId: coffee.categoryId,
-        quantity: 1
+      this.basket.userId = this._storageService.getUserId() ?? '';
+      const newCoffee: BasketItemModel = {
+        productId: coffee.productId,
+        productName: coffee.productName,
+        quantity: 1,
+        price: coffee.productPrice,
       };
-      this.basketTotal.basketItems.push({ ...coffeeDto });
+      this.basket.basketItems.push({ ...newCoffee });
     }
     // Sepete ekleme işlemi
-    this._basketService.AddToBasket(this.basketTotal);
-    this.snackBar.open(`${coffee.name} sepete eklendi!`, 'Kapat', {
+    this._basketService.AddToBasket(this.basket);
+    this.snackBar.open(`${coffee.productName} sepete eklendi!`, 'Kapat', {
       duration: 2000,
     });
   }

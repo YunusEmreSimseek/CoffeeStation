@@ -2,12 +2,12 @@
   <h1>{{ categoryName }}</h1>
   <div class="coffees">
     <mat-card class="coffee-card" *ngFor="let coffee of coffees">
-      <img mat-card-image [src]="categoryImage" [alt]="coffee.name">
+      <img mat-card-image [src]="categoryImage" [alt]="coffee.productName">
       <mat-card-content>
-        <h2>{{ coffee.name }}</h2>
+        <h2>{{ coffee.productName }}</h2>
         <!-- Custom pipe -->
-        <p>{{ coffee.description | truncate:200 }}</p>
-        <h3>{{ coffee.price | currency:'TRY ' }}</h3>
+        <p>{{ coffee.productDescription | truncate:200 }}</p>
+        <h3>{{ coffee.productPrice | currency:'TRY ' }}</h3>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" (click)="addToBasket(coffee)">Sepete Ekle</button>

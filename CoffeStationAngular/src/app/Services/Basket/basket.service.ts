@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BasketTotal } from '../../Models/Basket/BasketModels';
 import { Observable } from 'rxjs';
 import { StorageService } from '../Storage/storage.service';
 import { AppConsts } from '../../../appConsts';
+import { BasketModel } from '../../Models/Basket/BasketModels';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
 
-  private baseUrl = AppConsts.remoteUrlBase + '/basket/basket';
+  // private baseUrl = AppConsts.remoteUrlBase + '/basket/basket';
+  private baseUrl = "http://localhost:2501/api/basket";
 
 
   constructor(
@@ -18,26 +19,26 @@ export class BasketService {
     private _storageService: StorageService,
   ) {}
 
-  AddToBasket(basket: BasketTotal) {
+  AddToBasket(basket: BasketModel) {
     this.http.post(this.baseUrl, basket,  { responseType: 'text' }).subscribe();
   }
 
 
-  getMyBasket(): Observable<BasketTotal> {
+  getUserBasket(): Observable<BasketModel> {
       const userId = this._storageService.getUserId();
-      const url = `${this.baseUrl}/${userId}`;
-      return this.http.get<BasketTotal>(url);
+      const url = `${this.baseUrl}?userId=${userId}`;
+      return this.http.get<BasketModel>(url);
     }
 
 
-  updateBasket(basketTotal: BasketTotal) {
+  updateBasket(basketTotal: BasketModel) {
      return this.http.post(this.baseUrl, basketTotal,  { responseType: 'text' })
   }
 
-  getBasketById(basketId: number): Observable<BasketTotal> {
-    const url = `${this.baseUrl}/${basketId}`;
-    return this.http.get<BasketTotal>(url);
-  }
+  // getBasketById(basketId: number): Observable<BasketModel> {
+  //   const url = `${this.baseUrl}/${basketId}`;
+  //   return this.http.get<BasketModel>(url);
+  // }
 
 
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../../Services/Auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent, ConfirmDialogData } from '../dialogs/confirm-dialog/confirm-dialog.component';
 import { StorageService } from '../../Services/Storage/storage.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from '../../Services/User/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,12 +18,12 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private _authService: AuthService,
+    private _userService: UserService,
     private snackBar: MatSnackBar,
     private _storageService: StorageService,
     private router: Router
   ) {
-    this.isLoggedIn$ = this._authService.isLoggedIn();
+    this.isLoggedIn$ = this._userService.isLoggedIn();
   }
 
   ngOnInit(): void {
@@ -44,10 +44,10 @@ export class NavbarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._authService.logoutUser().subscribe((result) => {
+        this._userService.logoutUser().subscribe((result) => {
           if(result){
             this._storageService.clearUser();
-            this._authService.setUserLoggedIn(false);
+            this._userService.setUserLoggedIn(false);
             this._storageService.saveUserRole('Visitor');
             this.router.navigate(['/login']);
             this.snackBar.open('Başarıyla çıkış yaptınız.', 'Kapat', {

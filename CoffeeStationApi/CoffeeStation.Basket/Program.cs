@@ -17,6 +17,17 @@ builder
         opt.RequireHttpsMetadata = false;
     });
 
+// CORS ayarlarını ekleyin
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 // builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
@@ -44,6 +55,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAllOrigins");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

@@ -12,25 +12,25 @@
       <!-- ID Kolonu -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let coffee">{{ coffee.id }}</td>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.productId }}</td>
       </ng-container>
 
       <!-- İsim Kolonu -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> İsim </th>
-        <td mat-cell *matCellDef="let coffee">{{ coffee.name }}</td>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.productName }}</td>
       </ng-container>
 
       <!-- Açıklama Kolonu -->
       <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef> Açıklama </th>
-        <td mat-cell *matCellDef="let coffee">{{ coffee.description }}</td>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.productDescription }}</td>
       </ng-container>
 
       <!-- Fiyat Kolonu -->
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef> Fiyat </th>
-        <td mat-cell *matCellDef="let coffee">{{ coffee.price | currency:'TRY' }}</td>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.productPrice | currency:'TRY' }}</td>
       </ng-container>
 
       <!-- Kategori ID Kolonu -->
@@ -43,7 +43,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> İşlem </th>
         <td mat-cell *matCellDef="let coffee">
-          <button mat-icon-button color="warn" (click)="deleteCoffee(coffee.id)">
+          <button mat-icon-button color="warn" (click)="deleteCoffee(coffee.productId)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

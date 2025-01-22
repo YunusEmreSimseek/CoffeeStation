@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreateOrderModel, OrderyModel } from '../../Models/Order/OrderModels';
+import { CreateOrderModel, OrderModel } from '../../Models/Order/OrderModels';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  private baseUrl = "http://localhost:2510/api/Ordery";
+  private baseUrl = "http://localhost:2503/api/order";
 
 
     constructor(
@@ -19,6 +19,6 @@ export class OrderService {
     }
 
     getAllOrders(){
-      return this.http.get<OrderyModel[]>(this.baseUrl);
+      return this.http.get<OrderModel[]>(this.baseUrl);
     }
 }

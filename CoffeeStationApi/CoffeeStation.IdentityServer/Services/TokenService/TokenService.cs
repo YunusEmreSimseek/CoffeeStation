@@ -33,5 +33,26 @@ namespace CoffeeStation.IdentityServer.Services.TokenService
             var tokenResponse = JsonConvert.DeserializeObject<TokenResultDto>(responseString);
             return tokenResponse.AccessToken;
         }
+
+        public async Task<string?> TakeAnonymousToken(){
+            // Token istegi atiyoruz
+            using var httpClient = new HttpClient();
+            var requestBody = new Dictionary<string, string>
+            {
+                { "grant_type", "client_credentials" },
+                { "client_id", "CoffeeStationVisitorId" },
+                { "client_secret", "coffeestationsecret" },
+            };
+            var response = await httpClient.PostAsync(tokenEndpoint, new FormUrlEncodedContent(requestBody));
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            // Yanıtı isledik
+            var responseString = await response.Content.ReadAsStringAsync();
+            var tokenResponse = JsonConvert.DeserializeObject<TokenResultDto>(responseString);
+            return tokenResponse.AccessToken;
+        }
     }
 }

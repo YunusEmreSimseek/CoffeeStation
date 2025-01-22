@@ -12,7 +12,7 @@ import { AddDiscountDialogComponent } from '../../../dialogs/add-discount-dialog
 })
 export class DiscountsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'code', 'rate', 'isActive', 'actions'];
+  displayedColumns: string[] = ['id', 'code', 'rate', 'actions'];
   dataSource: GetCouponModel[] = [];
 
   constructor(

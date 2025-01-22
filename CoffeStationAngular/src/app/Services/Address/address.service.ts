@@ -8,7 +8,7 @@ import { StorageService } from '../Storage/storage.service';
 })
 export class AddressService {
 
-  private baseUrl = "http://localhost:2510/api/addresses";
+  private baseUrl = "http://localhost:2503/api/address";
 
   constructor(
     private http: HttpClient,

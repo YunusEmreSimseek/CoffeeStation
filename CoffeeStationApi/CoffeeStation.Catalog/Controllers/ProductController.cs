@@ -37,6 +37,14 @@ namespace CoffeeStation.Catalog.Controllers
             return Ok(values);
         }
 
+        [AllowAnonymous]
+        [HttpGet("categoryId/{id}")]
+        public async Task<IActionResult> GetProductByCategoryId(string id)
+        {
+            var values = await _productService.GetByCategoryIdProductAsync(id);
+            return Ok(values);
+        }
+
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)

@@ -30,8 +30,6 @@ onSave() {
   }
 
   const newDiscount: CreateCuponModel = this.discountForm.value;
-  newDiscount.isActive = true;
-  newDiscount.validDate = new Date();
   this._discountService.addDiscount(newDiscount).subscribe({
     next: () => {
       this.snackBar.open('Kupon başarıyla eklendi.', 'Kapat', {

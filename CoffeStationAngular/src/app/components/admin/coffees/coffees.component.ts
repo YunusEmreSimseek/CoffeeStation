@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoffeeModel } from '../../../Models/Coffee/coffee.model';
+import { ProductModel } from '../../../Models/Coffee/coffee.model';
 import { CoffeeService } from '../../../Services/Coffee/coffee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,7 +15,7 @@ import { CategoryModel } from '../../../Models/Category/CategoryModel';
 export class CoffeesComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'description', 'price', 'categoryId', 'actions'];
-  dataSource: CoffeeModel[] = [];
+  dataSource: ProductModel[] = [];
   categories: CategoryModel[] = [];
 
   constructor(
@@ -45,7 +45,7 @@ export class CoffeesComponent implements OnInit {
   }
 
   chechCategoryName(categoryId: string): string {
-    const category = this.categories.find(c => c.categoryID === categoryId);
+    const category = this.categories.find(c => c.categoryId === categoryId);
     return category ? category.categoryName : '';
   }
 
