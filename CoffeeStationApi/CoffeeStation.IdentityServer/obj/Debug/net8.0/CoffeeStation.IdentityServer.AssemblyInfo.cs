@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoffeeStation.IdentityServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d704de0530316b81671f4ab5a1febb63e1e9009")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9d0040f6acb25cc79d23a68fd784a75402a53b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoffeeStation.IdentityServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoffeeStation.IdentityServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

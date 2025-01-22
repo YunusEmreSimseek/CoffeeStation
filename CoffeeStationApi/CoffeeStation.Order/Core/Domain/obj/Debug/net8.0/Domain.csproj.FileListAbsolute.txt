@@ -1,0 +1,12 @@
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/bin/Debug/net8.0/Domain.deps.json
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/bin/Debug/net8.0/Domain.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/bin/Debug/net8.0/Domain.pdb
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.sourcelink.json
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/refint/Domain.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/Domain.pdb
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Domain/obj/Debug/net8.0/ref/Domain.dll

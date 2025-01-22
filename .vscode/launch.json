@@ -6,7 +6,8 @@
                 "C#: CoffeeStation.Catalog",
                 "C#: CoffeeStation.IdentityServer",
                 "C#: CoffeeStation.Basket",
-                "C#: CoffeeStation.Discount"
+                "C#: CoffeeStation.Discount",
+                "C#: CoffeeStation.Order"
             ]
         }
     ],
@@ -34,6 +35,12 @@
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Discount/CoffeeStation.Discount.csproj",
+        },
+        {
+            "name": "C#: CoffeeStation.Order",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Order/Presentation/WebApi/WebApi.csproj",
         }
     ]
 }

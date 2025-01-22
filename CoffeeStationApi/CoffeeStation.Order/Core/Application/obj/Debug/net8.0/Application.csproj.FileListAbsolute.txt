@@ -1,0 +1,16 @@
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/bin/Debug/net8.0/Application.deps.json
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/bin/Debug/net8.0/Application.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/bin/Debug/net8.0/Application.pdb
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/bin/Debug/net8.0/Domain.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/bin/Debug/net8.0/Domain.pdb
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.sourcelink.json
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Applicat.44B5EDA2.Up2Date
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/refint/Application.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/Application.pdb
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Order/Core/Application/obj/Debug/net8.0/ref/Application.dll
