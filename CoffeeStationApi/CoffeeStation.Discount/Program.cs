@@ -1,7 +1,32 @@
+using CoffeeStation.Discount.Context;
+using CoffeeStation.Discount.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder
+    .Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opt =>
+    {
+        opt.Authority = builder.Configuration["IdentityServerUrl"];
+        opt.Audience = "ResourceDiscount";
+        opt.RequireHttpsMetadata = false;
+    });
+
+builder.Services.AddTransient<IDiscountService, DiscountService>();
+
+// ConnectionString'i alıyoruz
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// PostgreSQL ile EF Core'u ilişkilendiriyoruz
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -15,6 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
 
 var summaries = new[]
 {

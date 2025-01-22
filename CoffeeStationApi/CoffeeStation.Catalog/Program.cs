@@ -2,18 +2,19 @@ using System.Reflection;
 using CoffeeStation.Catalog.Services.CategoryServices;
 using CoffeeStation.Catalog.Services.ProductServices;
 using CoffeeStation.Catalog.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// builder
-//     .Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//     .AddJwtBearer(opt =>
-//     {
-//         opt.Authority = builder.Configuration["IdentityServerUrl"];
-//         opt.Audience = "ResourceCatalog";
-//         opt.RequireHttpsMetadata = false;
-//     });
+builder
+    .Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opt =>
+    {
+        opt.Authority = builder.Configuration["IdentityServerUrl"];
+        opt.Audience = "ResourceCatalog";
+        opt.RequireHttpsMetadata = false;
+    });
 
 //Servisler için konfigürasyon
 builder.Services.AddScoped<ICategoryService, CategoryService>();
@@ -47,8 +48,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
-// app.UseAuthentication();
-// app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 
 var summaries = new[]

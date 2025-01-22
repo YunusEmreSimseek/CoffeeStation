@@ -39,3 +39,12 @@
 /Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/obj/Debug/net8.0/CoffeeStation.Catalog.pdb
 /Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/obj/Debug/net8.0/CoffeeStation.Catalog.genruntimeconfig.cache
 /Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/obj/Debug/net8.0/ref/CoffeeStation.Catalog.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/emresimsek/Documents/VsCodeProjects/CoffeeStation/CoffeeStationApi/CoffeeStation.Catalog/obj/Debug/net8.0/CoffeeStation.Catalog.sourcelink.json

@@ -1,35 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using CoffeeStation.IdentityServer.Dtos.TokenDtos;
-using CoffeeStation.IdentityServer.Dtos.UserDtos;
-using CoffeeStation.IdentityServer.Models;
-using IdentityServer4.Models;
-using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
-namespace CoffeeStation.IdentityServer.Services.UserService
+namespace CoffeeStation.IdentityServer.Services.TokenService
 {
-    public class UserService
+    public class TokenService
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly string tokenEndpoint = "http://localhost:5001/connect/token";
 
-        public UserService(
-            SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager
-            )
-        {
-            _signInManager = signInManager;
-            _userManager = userManager;
-        }
-        
-
-        public async Task<string?> TokenUser(CreateTokenDto createTokenDto){
-            // Toke istegi atiyoruz
+        public async Task<string?> TakeUserToken(CreateTokenDto createTokenDto){
+             // Token istegi atiyoruz
             using var httpClient = new HttpClient();
             var requestBody = new Dictionary<string, string>
             {

@@ -2,7 +2,12 @@
     "compounds": [
         {
             "name": "Compound",
-            "configurations": []
+            "configurations": [
+                "C#: CoffeeStation.Catalog",
+                "C#: CoffeeStation.IdentityServer",
+                "C#: CoffeeStation.Basket",
+                "C#: CoffeeStation.Discount"
+            ]
         }
     ],
     "configurations": [
@@ -17,6 +22,18 @@
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.IdentityServer/CoffeeStation.IdentityServer.csproj",
+        },
+        {
+            "name": "C#: CoffeeStation.Basket",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Basket/CoffeeStation.Basket.csproj",
+        },
+        {
+            "name": "C#: CoffeeStation.Discount",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Discount/CoffeeStation.Discount.csproj",
         }
     ]
 }

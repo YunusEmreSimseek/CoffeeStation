@@ -15,7 +15,7 @@ using CoffeeStation.IdentityServer.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using CoffeeStation.IdentityServer.Services.UserService;
+using CoffeeStation.IdentityServer.Services.TokenService;
 
 
 namespace CoffeeStation.IdentityServer
@@ -54,7 +54,7 @@ namespace CoffeeStation.IdentityServer
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddScoped<UserService>();
+            services.AddScoped<TokenService>();
 
             var builder = services.AddIdentityServer(options =>
             {

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/CoffeeStation.Basket.props" />
+</Project>

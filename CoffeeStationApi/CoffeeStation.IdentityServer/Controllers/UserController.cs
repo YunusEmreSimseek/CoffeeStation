@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using CoffeeStation.IdentityServer.Dtos.TokenDtos;
 using CoffeeStation.IdentityServer.Dtos.UserDtos;
 using CoffeeStation.IdentityServer.Models;
-using CoffeeStation.IdentityServer.Services.UserService;
+using CoffeeStation.IdentityServer.Services.TokenService;
 using IdentityServer4;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -20,22 +20,19 @@ namespace CoffeeStation.IdentityServer.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-
-
-        private readonly UserService _userService;
-        private readonly string tokenEndpoint = "http://localhost:5001/connect/token";
+        private readonly TokenService _tokenService;
 
         public UserController(
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager,
-            UserService userService
+            TokenService tokenService
             )
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _roleManager = roleManager;
-            _userService = userService;
+            _tokenService = tokenService;
         }
 
         [AllowAnonymous]
@@ -71,7 +68,7 @@ namespace CoffeeStation.IdentityServer.Controllers
             }
 
             // Kullanici icin token alalim
-            var tokenResponse = await _userService.TokenUser(createTokenDto);
+            var tokenResponse = await _tokenService.TakeUserToken(createTokenDto);
             if (tokenResponse == null) return Unauthorized("Token oluşturulamadı.");
 
             return Ok(new LoginUserResultDto

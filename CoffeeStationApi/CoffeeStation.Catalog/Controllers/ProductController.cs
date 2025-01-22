@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoffeeStation.Catalog.Dtos.ProductDtos;
 using CoffeeStation.Catalog.Services.ProductServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoffeeStation.Catalog.Controllers
-{
+{   
+    
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -19,6 +21,7 @@ namespace CoffeeStation.Catalog.Controllers
             _productService = productService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
@@ -26,6 +29,7 @@ namespace CoffeeStation.Catalog.Controllers
             return Ok(values);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(string id)
         {
@@ -33,6 +37,7 @@ namespace CoffeeStation.Catalog.Controllers
             return Ok(values);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
         {
@@ -40,6 +45,7 @@ namespace CoffeeStation.Catalog.Controllers
             return Ok("Urun basariyla eklendi");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct(string id)
         {
@@ -47,6 +53,7 @@ namespace CoffeeStation.Catalog.Controllers
             return Ok("Urun basariyla silindi");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
         {
