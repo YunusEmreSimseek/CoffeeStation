@@ -1,0 +1,13 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}

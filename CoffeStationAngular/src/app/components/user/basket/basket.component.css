@@ -1,0 +1,71 @@
+/* src/app/components/cart/cart.component.scss */
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cart-card {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.mat-table {
+  width: 100%;
+  overflow: auto;
+}
+
+.coffee-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.empty-cart {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.coupon-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.coupon-input {
+  width: 200px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .cart-card {
+    padding: 10px;
+  }
+
+  .coffee-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .total-container {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .total-container h3 {
+    margin-bottom: 10px;
+  }
+}

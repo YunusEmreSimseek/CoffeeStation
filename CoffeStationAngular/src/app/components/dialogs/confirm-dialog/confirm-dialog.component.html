@@ -1,0 +1,9 @@
+<!-- src/app/components/confirm-dialog/confirm-dialog.component.html -->
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <p>{{ data.message }}</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Hayır</button>
+  <button mat-button color="warn" (click)="onYesClick()">Evet</button>
+</div>

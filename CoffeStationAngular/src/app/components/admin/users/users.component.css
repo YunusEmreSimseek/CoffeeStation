@@ -1,0 +1,12 @@
+mat-card {
+  margin: 16px;
+}
+
+mat-card-title {
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+button[mat-raised-button] {
+  margin-bottom: 16px;
+}

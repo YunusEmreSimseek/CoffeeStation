@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-title>Kahve Yönetimi</mat-card-title>
+  <mat-card-content>
+    <!-- Ekle butonu -->
+    <button mat-raised-button color="primary" (click)="openAddCoffeeDialog()">
+      <mat-icon>add</mat-icon> Yeni Kahve Ekle
+    </button>
+
+    <!-- Kahve Listesi (Material Table) -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 20px; width: 100%;">
+
+      <!-- ID Kolonu -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.id }}</td>
+      </ng-container>
+
+      <!-- İsim Kolonu -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> İsim </th>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.name }}</td>
+      </ng-container>
+
+      <!-- Açıklama Kolonu -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Açıklama </th>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.description }}</td>
+      </ng-container>
+
+      <!-- Fiyat Kolonu -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Fiyat </th>
+        <td mat-cell *matCellDef="let coffee">{{ coffee.price | currency:'TRY' }}</td>
+      </ng-container>
+
+      <!-- Kategori ID Kolonu -->
+      <ng-container matColumnDef="categoryId">
+        <th mat-header-cell *matHeaderCellDef> Kategori </th>
+        <td mat-cell *matCellDef="let coffee">{{ chechCategoryName(coffee.categoryId)}}</td>
+      </ng-container>
+
+      <!-- İşlem Kolonu -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> İşlem </th>
+        <td mat-cell *matCellDef="let coffee">
+          <button mat-icon-button color="warn" (click)="deleteCoffee(coffee.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

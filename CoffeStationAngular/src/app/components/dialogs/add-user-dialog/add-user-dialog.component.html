@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Yeni Kullanıcı Ekle</h2>
+<mat-dialog-content>
+  <form [formGroup]="userForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="userName">
+      <mat-error *ngIf="userForm.controls['userName'].invalid && userForm.controls['userName'].touched">
+        Kullanıcı adı zorunludur
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="userForm.controls['name'].invalid && userForm.controls['name'].touched">
+        İsim zorunludur
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Surname</mat-label>
+      <input matInput formControlName="surname">
+      <mat-error *ngIf="userForm.controls['surname'].invalid && userForm.controls['surname'].touched">
+        Soyisim zorunludur
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>E-posta</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+        Geçerli bir e-posta giriniz
+      </mat-error>
+    </mat-form-field>
+
+      <!-- Rol Seçimi -->
+      <mat-form-field appearance="fill">
+        <mat-label>Rol Seçimi</mat-label>
+        <mat-select formControlName="role">
+          <mat-option [value]="'Admin'">Admin</mat-option>
+          <mat-option [value]="'User'">User</mat-option>
+        </mat-select>
+        <mat-error *ngIf="userForm.controls['role'].invalid && userForm.controls['role'].touched">
+          Rol seçimi zorunludur
+        </mat-error>
+      </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Şifre</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
+        Şifre zorunludur
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Vazgeç</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="userForm.invalid">Kaydet</button>
+</mat-dialog-actions>

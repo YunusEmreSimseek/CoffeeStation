@@ -1,0 +1,22 @@
+.category-container {
+  padding: 16px;
+}
+
+.coffees {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+.coffee-card {
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .coffees {
+    grid-template-columns: 1fr;
+  }
+}

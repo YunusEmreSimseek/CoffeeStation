@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>
+  {{ mode === 'add' ? 'Yeni Kategori Ekle' : 'Kategori Düzenle' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="categoryForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Kategori Adı</mat-label>
+      <input matInput formControlName="categoryName">
+      <mat-error *ngIf="categoryForm.controls['categoryName'].invalid && categoryForm.controls['categoryName'].touched">
+        Kategori adı zorunludur
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Vazgeç</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="categoryForm.invalid">
+    Kaydet
+  </button>
+</mat-dialog-actions>

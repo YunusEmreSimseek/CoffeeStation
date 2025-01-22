@@ -1,0 +1,16 @@
+
+<div class="dashboard-cards">
+  <mat-card *ngFor="let stat of stats" [ngClass]="stat.color">
+    <mat-card-content>
+      <div class="icon-wrapper">
+        <mat-icon>{{ stat.icon }}</mat-icon>
+      </div>
+      <div class="stat-text">
+        <h3>{{ stat.title }}</h3>
+        <p>{{ stat.value }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<app-orders (totalOrderEvent)="receiveMessage($event)"></app-orders>

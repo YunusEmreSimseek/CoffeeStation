@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-card-title>Kupon Yönetimi</mat-card-title>
+  <mat-card-content>
+    <!-- Ekle butonu -->
+    <button mat-raised-button color="primary" (click)="openAddDiscountDialog()">
+      <mat-icon>add</mat-icon> Yeni Kupon Ekle
+    </button>
+
+    <!-- Kupon Listesi -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 20px; width: 100%;">
+
+      <!-- ID Kolonu -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let discount">{{ discount.couponId }}</td>
+      </ng-container>
+
+      <!-- Kod Kolonu -->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> Kod </th>
+        <td mat-cell *matCellDef="let discount">{{ discount.code }}</td>
+      </ng-container>
+
+      <!-- İndirim Oranı Kolonu -->
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef> İndirim Oranı </th>
+        <td mat-cell *matCellDef="let discount">{{ discount.rate }}%</td>
+      </ng-container>
+
+      <!-- İndirim Oranı Kolonu -->
+      <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef> Aktifmi </th>
+        <td mat-cell *matCellDef="let discount">{{ discount.isActive }}</td>
+      </ng-container>
+
+      <!-- İşlem Kolonu -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> İşlem </th>
+        <td mat-cell *matCellDef="let discount">
+          <button mat-icon-button color="warn" (click)="deleteDiscount(discount.couponId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

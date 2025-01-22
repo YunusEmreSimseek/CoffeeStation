@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-title>Kategori Yönetimi</mat-card-title>
+  <mat-card-content>
+
+    <!-- Yeni Kategori Ekle Butonu -->
+    <button mat-raised-button color="primary" (click)="openAddCategoryDialog()">
+      <mat-icon>add</mat-icon>
+      Yeni Kategori Ekle
+    </button>
+
+    <!-- Kategori Listesi (Mat Table) -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 20px; width: 100%">
+
+      <!-- ID Kolonu -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let cat">
+          {{ cat.categoryID }}
+        </td>
+      </ng-container>
+
+      <!-- Name Kolonu -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> İsim </th>
+        <td mat-cell *matCellDef="let cat">
+          {{ cat.categoryName }}
+        </td>
+      </ng-container>
+
+      <!-- Actions Kolonu -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> İşlemler </th>
+        <td mat-cell *matCellDef="let cat">
+          <button mat-icon-button color="accent" (click)="openEditCategoryDialog(cat)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteCategory(cat.categoryID)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>

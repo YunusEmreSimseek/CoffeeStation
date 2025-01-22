@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <span>Coffee Station</span>
+  <span class="spacer"></span>
+  <nav>
+
+    <a mat-button href="/home">Ana Sayfa</a>
+    <ng-container *ngIf="!(isLoggedIn$ | async)">
+      <a mat-button href="/login">Giriş Yap</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <a mat-button href="/basket">Sepet</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <button mat-button color="accent" (click)="openLogoutDialog()">
+        <mat-icon>logout</mat-icon>
+        Çıkış Yap
+      </button>
+    </ng-container>
+
+  </nav>
+</mat-toolbar>

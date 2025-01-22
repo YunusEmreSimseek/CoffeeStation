@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Yeni Kahve Ekle</h2>
+<mat-dialog-content>
+  <form [formGroup]="coffeeForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Kahve Adı</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="coffeeForm.controls['name'].invalid && coffeeForm.controls['name'].touched">
+        Kahve adı zorunludur
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Açıklama</mat-label>
+      <input matInput formControlName="description">
+      <mat-error *ngIf="coffeeForm.controls['description'].invalid && coffeeForm.controls['description'].touched">
+        Açıklama zorunludur
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fiyat</mat-label>
+      <input matInput type="number" formControlName="price">
+      <mat-error *ngIf="coffeeForm.controls['price'].invalid && coffeeForm.controls['price'].touched">
+        Geçerli bir fiyat giriniz
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Kategori</mat-label>
+      <mat-select formControlName="categoryId">
+        <mat-option *ngFor="let cat of categories" [value]="cat.categoryID">
+          {{ cat.categoryName }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="coffeeForm.controls['categoryId'].invalid && coffeeForm.controls['categoryId'].touched">
+        Lütfen bir kategori seçiniz
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Vazgeç</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="coffeeForm.invalid">
+    Kaydet
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,63 @@
+
+ <mat-sidenav-container class="admin-container">
+  <mat-sidenav #drawer mode="side" [opened]="isMenuOpen" class="sidenav">
+    <div class="logo">
+      <h2>Admin Panel</h2>
+    </div>
+
+    <mat-nav-list>
+
+      <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="active-link">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+
+      <a mat-list-item routerLink="/admin/users" routerLinkActive="active-link">
+        <mat-icon>group</mat-icon>
+        <span>Kullanıcılar</span>
+      </a>
+
+      <a mat-list-item routerLink="/admin/discounts" routerLinkActive="active-link">
+        <mat-icon>discounts</mat-icon>
+        <span>Discounts</span>
+      </a>
+
+      <a mat-list-item routerLink="/admin/coffees" routerLinkActive="active-link">
+        <mat-icon>coffee</mat-icon>
+        Kahveler
+      </a>
+
+      <a mat-list-item routerLink="/admin/orders" routerLinkActive="active-link">
+        <mat-icon>book</mat-icon>
+        Siparişler
+      </a>
+
+      <a mat-list-item routerLink="/admin/categories" routerLinkActive="active-link">
+        <mat-icon>category</mat-icon>
+        Kategoriler
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="main-content">
+    <mat-toolbar color="primary" class="top-toolbar">
+      <button mat-icon-button (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="title">Yönetim Paneli</span>
+      <span class="spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item>Profil</button>
+        <button mat-menu-item (click)="logout()">Çıkış</button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
