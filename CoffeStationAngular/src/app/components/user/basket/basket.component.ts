@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddAddressDialogComponent } from '../../dialogs/add-address-dialog/add-address-dialog.component';
 import { OrderService } from '../../../Services/Order/order.service';
 import { CreateOrderModel } from '../../../Models/Order/OrderModels';
-import { AddressModel } from '../../../Models/Adress/AdressModels';
 import { AppConsts } from '../../../../appConsts';
 import { BasketItemModel, BasketModel } from '../../../Models/Basket/BasketModels';
 
@@ -22,8 +21,7 @@ export class BasketComponent implements OnInit {
   dataSource: MatTableDataSource<BasketItemModel> = new MatTableDataSource<BasketItemModel>([]);
   // tabloda gösterilecek sütunlar
   displayedColumns: string[] = ['image', 'name', 'price', 'quantity', 'total', 'actions'];
-  totalPrice: number = 0;
-  private basket: BasketModel = { userId: '', basketItems: [], totalPrice: 0};
+  basket: BasketModel = { userId: '', basketItems: [], totalPrice: 0};
   isCouponApplied: boolean = false;
   couponCode: string = '';
   discountRate: number = 0;
@@ -41,10 +39,13 @@ export class BasketComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.getUserBasket();
+  }
+
+  getUserBasket(){
     this._basketService.getUserBasket().subscribe(data => {
       this.basket = data;
       this.dataSource.data = data.basketItems;
-      this.calculateTotal();
     });
   }
 
@@ -55,11 +56,10 @@ export class BasketComponent implements OnInit {
     const index = this.basket.basketItems.indexOf(item);
     if (item.quantity > 1) {
       this.basket.basketItems[index].quantity -= 1;
+      this.basket
       this._basketService.updateBasket(this.basket).subscribe(
         data => {
-          console.log(data);
-          // Miktarı güncelle
-        this.calculateTotal();
+          this.getUserBasket();
         }
       );
     }
@@ -74,12 +74,10 @@ export class BasketComponent implements OnInit {
     if (index > -1) {
       // Eğer kahve sepette varsa miktarını artır
       this.basket.basketItems[index].quantity += 1;
-
       this._basketService.updateBasket(this.basket).subscribe(
         data => {
-          console.log(data);
+          this.getUserBasket();
           // Miktarı güncelle
-          this.calculateTotal();
         }
       );
     }
@@ -93,7 +91,6 @@ export class BasketComponent implements OnInit {
     this._basketService.updateBasket(this.basket).subscribe(
       data => {
         this.dataSource.data = currentItems;
-        this.calculateTotal();
         this.snackBar.open('Ürün sepetinizden kaldırıldı', 'Kapat', {
           duration: 2000,
         });
@@ -108,18 +105,14 @@ export class BasketComponent implements OnInit {
         return AppConsts.coffeeImageUrl.toString();
       }
 
-  // Toplam Fiyatı Hesaplama
-  calculateTotal(): void {
-    this.totalPrice = this.basket.basketItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  }
 
   // Kupon Uygulama
   applyCoupon(): void {
     this._discountService.getDiscountByCode(this.couponCode).subscribe(data => {
       if (data) {
         this.discountRate = data.rate;
-        this.discoundedPrice = (this.totalPrice * this.discountRate / 100);
-        this.totalPrice = this.totalPrice - (this.totalPrice * this.discountRate / 100);
+        this.discoundedPrice = (this.basket.totalPrice * this.discountRate / 100);
+        this.basket.totalPrice = this.basket.totalPrice - (this.basket.totalPrice * this.discountRate / 100);
         this.isCouponApplied = true;
         this.snackBar.open('Kupon başarıyla uygulandı', 'Kapat', {
           duration: 2000,
@@ -145,13 +138,15 @@ export class BasketComponent implements OnInit {
         if (err.error === 'Adres bulunamadi.'){
           const dialogRef = this.dialog.open(AddAddressDialogComponent, {
             width: '400px',
-            data: { userId: this.basket.userId } // Diyaloğa userId geçebiliriz
+            data: { userId: this.basket.userId }
           });
 
           // Diyalog kapandıktan sonra
           dialogRef.afterClosed().subscribe(result => {
             if (result === 'success') {
-              // Adres kaydı başarıyla eklendiyse şimdi satın al
+              this.snackBar.open('Adres başarıyla eklendi', 'Kapat', {
+                duration: 2000,
+              });
             }
           });
         }
@@ -166,7 +161,7 @@ export class BasketComponent implements OnInit {
      const order: CreateOrderModel = {
       userId: this.basket.userId,
       productIds: productIds,
-      totalPrice: this.totalPrice,
+      totalPrice: this.basket.totalPrice,
       addressId: addressId
      }
      console.log('CreateOrderModel:', order);

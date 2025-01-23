@@ -18,13 +18,16 @@ export class UserService {
   private getAllUsersUrl = `${this.baseUrl}/get-users`;
   private deleteUserUrl = `${this.baseUrl}/delete-user`;
   private logoutUrl = `${this.baseUrl}/logout`;
-  private userLoggedIn = new BehaviorSubject<boolean>(false);
+  private userLoggedIn: BehaviorSubject<boolean>;
 
 
   constructor(
     private http: HttpClient,
     private _storageService: StorageService
-  ) {  }
+  ) {
+    const initIsLoggedIn = this._storageService.getUserId() !== null;
+    this.userLoggedIn = new BehaviorSubject<boolean>(initIsLoggedIn);
+   }
 
   takeAnonymousToken() {
     return this.http.get(`${this.baseUrl}/take-anonymous-token`, { responseType: 'text' });
@@ -59,13 +62,11 @@ export class UserService {
     return this.http.get(this.logoutUrl, { responseType: 'text' });
   }
 
-  // Kullanıcı girişi yapmış mı kontrol eder.
-    isLoggedIn(): Observable<boolean> {
+  getUserLoggedInObservable(): Observable<boolean> {
       return this.userLoggedIn.asObservable();
-    }
+  }
 
-    // Kullanıcı girişi yapmış mı kontrol eder.
-    setUserLoggedIn(value: boolean) {
+  setUserLoggedIn(value: boolean) {
       this.userLoggedIn.next(value);
-    }
+  }
 }

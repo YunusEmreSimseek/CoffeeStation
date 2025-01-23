@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class DiscountService {
 
-  // private baseUrl = AppConsts.remoteUrlBase + '/discount/discount';
+
   private baseUrl = 'http://localhost:2502/api/discount';
 
   constructor(private http: HttpClient) { }
 
   getDiscountByCode(code: string): Observable<Coupon> {
-    return this.http.get<Coupon>(`${this.baseUrl}/${code}`);
+    return this.http.get<Coupon>(`${this.baseUrl}/code/${code}`);
   }
 
   getAllDiscounts(): Observable<GetCouponModel[]> {

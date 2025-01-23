@@ -3,13 +3,13 @@
   <span class="spacer"></span>
   <nav>
 
-    <a mat-button href="/home">Ana Sayfa</a>
+    <a mat-button [routerLink]="['/home']">Ana Sayfa</a>
     <ng-container *ngIf="!(isLoggedIn$ | async)">
-      <a mat-button href="/login">Giriş Yap</a>
+      <a mat-button [routerLink]="['/login']">Giriş Yap</a>
     </ng-container>
 
     <ng-container *ngIf="isLoggedIn$ | async">
-      <a mat-button href="/basket">Sepet</a>
+      <a mat-button [routerLink]="['/basket']">Sepet</a>
     </ng-container>
 
     <ng-container *ngIf="isLoggedIn$ | async">

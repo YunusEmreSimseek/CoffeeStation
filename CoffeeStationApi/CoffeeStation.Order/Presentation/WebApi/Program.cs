@@ -44,6 +44,7 @@ builder.Services.AddScoped<RemoveAddressCommandHandler>();
 
 builder.Services.AddScoped<GetOrderQueryHandler>();
 builder.Services.AddScoped<GetOrderByIdQueryHandler>();
+builder.Services.AddScoped<GetOrderByUserIdQueryHandler>();
 builder.Services.AddScoped<CreateOrderCommandHandler>();
 builder.Services.AddScoped<UpdateOrderCommandHandler>();
 builder.Services.AddScoped<RemoveOrderCommandHandler>();

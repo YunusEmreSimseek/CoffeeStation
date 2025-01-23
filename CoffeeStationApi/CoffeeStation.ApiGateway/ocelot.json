@@ -1,0 +1,75 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 2500
+                }
+            ],
+            "UpstreamPathTemplate": "/services/catalog/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "UptreamScheme": "http",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+                "AllowedScopes": [ "CatalogFullPermission" ]
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 2501
+                }
+            ],
+            "UpstreamPathTemplate": "/services/basket/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "UptreamScheme": "http",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+                "AllowedScopes": [ "BasketFullPermission" ]
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 2502
+                }
+            ],
+            "UpstreamPathTemplate": "/services/discount/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "UptreamScheme": "http",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+                "AllowedScopes": [ "DiscountFullPermission" ]
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 2503
+                }
+            ],
+            "UpstreamPathTemplate": "/services/order/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "UptreamScheme": "http",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "OcelotAuthenticationScheme",
+                "AllowedScopes": [ "OrderFullPermission" ]
+            }
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5000"
+    }
+}

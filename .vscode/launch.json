@@ -7,7 +7,8 @@
                 "C#: CoffeeStation.IdentityServer",
                 "C#: CoffeeStation.Basket",
                 "C#: CoffeeStation.Discount",
-                "C#: CoffeeStation.Order"
+                "C#: CoffeeStation.Order",
+                "C#: CoffeeStation.ApiGateway"
             ]
         }
     ],
@@ -41,6 +42,18 @@
             "type": "dotnet",
             "request": "launch",
             "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Order/Presentation/WebApi/WebApi.csproj",
+        },
+        {
+            "name": "C#: CoffeeStation.ApiGateway",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.ApiGateway/CoffeeStation.ApiGateway.csproj",
+        },
+        {
+            "name": "C#: CoffeeStation.Message",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/CoffeeStationApi/CoffeeStation.Message/CoffeeStation.Message.csproj",
         }
     ]
 }

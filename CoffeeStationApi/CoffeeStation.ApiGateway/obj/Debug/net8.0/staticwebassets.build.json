@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pins5CzwzkvYBhbeeBwSIoO8WHnu0EepWHOX1UMLwGc=",
+  "Source": "CoffeeStation.ApiGateway",
+  "BasePath": "_content/CoffeeStation.ApiGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

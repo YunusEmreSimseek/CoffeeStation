@@ -10,7 +10,6 @@ import { BasketModel } from '../../Models/Basket/BasketModels';
 })
 export class BasketService {
 
-  // private baseUrl = AppConsts.remoteUrlBase + '/basket/basket';
   private baseUrl = "http://localhost:2501/api/basket";
 
 
@@ -34,11 +33,6 @@ export class BasketService {
   updateBasket(basketTotal: BasketModel) {
      return this.http.post(this.baseUrl, basketTotal,  { responseType: 'text' })
   }
-
-  // getBasketById(basketId: number): Observable<BasketModel> {
-  //   const url = `${this.baseUrl}/${basketId}`;
-  //   return this.http.get<BasketModel>(url);
-  // }
 
 
 }

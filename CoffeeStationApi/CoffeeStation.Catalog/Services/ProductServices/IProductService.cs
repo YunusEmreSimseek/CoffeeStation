@@ -18,6 +18,6 @@ namespace CoffeeStation.Catalog.Services.ProductServices
 
         Task<GetByIdProductDto> GetByIdProductAsync(string id);
 
-        Task<GetByCategoryIdProductDto> GetByCategoryIdProductAsync(string id);
+        Task<List<GetByCategoryIdProductDto>> GetByCategoryIdProductAsync(string id);
     }
 }

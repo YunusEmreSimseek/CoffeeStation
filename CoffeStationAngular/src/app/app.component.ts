@@ -16,30 +16,30 @@ export class AppComponent {
    private _userService: UserService,
   ) {}
 
-  // Kullanıcının rolünü kontrol eden bir getter
-  get isAdmin(): boolean {
-    return this._storageService.getUserRole() === 'Admin';
-  }
-
   ngOnInit() {
-    const isInitialized = sessionStorage.getItem('appInitialized');
-    if(!isInitialized){ {
-      console.log('Uygulama başlatılıyor...');
-      sessionStorage.setItem('appInitialized', 'true');
-
-      this._userService.takeAnonymousToken().subscribe((data: string) => {
-        console.log('Anonymous Token:', data);
-        this._storageService.saveVisitorToken(data);
-        this._storageService.saveUserRole('Visitor');
-      });
-
-      // this._authService.getAnonymousToken().subscribe((data: any) => {
-      //   this._storageService.saveVisitorToken(data.access_token);
-      //   this._storageService.saveUserRole('Visitor');
-      // });
+    const isInitialized2 = this._storageService.isAppInitialized();
+    if(!isInitialized2){
+      console.log('Uygulama baslatiliyor...');
+      this._storageService.saveAppInitialized();
+      this.takeAnonymousToken();
     }
-  }
+}
 
-}}
+takeAnonymousToken() {
+  this._userService.takeAnonymousToken().subscribe((data: string) => {
+    this._storageService.saveVisitorToken(data);
+    this._storageService.saveUserRole('Visitor');
+    console.log('Ziyarteci tokeni alindi ve kaydedildi.');
+  });
+}
+
+ // Kullanıcının rolünü kontrol eden bir getter
+ get isAdmin(): boolean {
+  return this._storageService.getUserRole() === 'Admin';
+}
+
+
+
+}
 
 

@@ -20,7 +20,7 @@ export class CoffeeService {
   }
 
   getCoffeesByCategory(id: string): Observable<ProductModel[]> {
-    return this.http.get<ProductModel[]>(`${this.baseUrl}/categoryId/${id}`);
+    return this.http.get<ProductModel[]>(`${this.baseUrl}/categoryid/${id}`);
   }
 
   getCoffeeById(id: string) {

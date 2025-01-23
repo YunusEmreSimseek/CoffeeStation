@@ -14,7 +14,7 @@ import { UserService } from '../../Services/User/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-   isLoggedIn$ = new Observable<boolean>();
+   isLoggedIn$: Observable<boolean>;
 
   constructor(
     public dialog: MatDialog,
@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     private _storageService: StorageService,
     private router: Router
   ) {
-    this.isLoggedIn$ = this._userService.isLoggedIn();
+    this.isLoggedIn$ = this._userService.getUserLoggedInObservable();
   }
 
   ngOnInit(): void {

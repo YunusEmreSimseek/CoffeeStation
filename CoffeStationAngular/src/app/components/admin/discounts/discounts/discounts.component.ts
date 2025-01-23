@@ -28,7 +28,6 @@ export class DiscountsComponent implements OnInit {
     this._discountService.getAllDiscounts().subscribe({
       next: (discounts) => {
         this.dataSource = discounts;
-        console.log(discounts);
       },
       error: (err) => {
         this.snackBar.open('Kuponlar yüklenirken hata oluştu.', 'Kapat', {

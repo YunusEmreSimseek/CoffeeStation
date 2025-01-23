@@ -6,6 +6,7 @@ import { UserLoginResultModel } from '../../Models/Login/LoginModels';
 })
 export class StorageService {
 
+  private appInitializedKey = 'appInitialized';
   private visitorTokenKey = 'visitorToken';
   private userTokenKey = 'authToken';
   private userIdKey = 'userId';
@@ -75,6 +76,20 @@ export class StorageService {
   clearVisitorToken() {
     sessionStorage.removeItem(this.visitorTokenKey);
   }
+
+  saveAppInitialized() {
+    sessionStorage.setItem(this.appInitializedKey, 'true');
+  }
+
+  isAppInitialized(): boolean {
+    return sessionStorage.getItem(this.appInitializedKey) === 'true';
+  }
+
+  getUserIsLoggedIn(): boolean {
+    return this.getUserId() !== null;
+  }
+
+
 
 
 

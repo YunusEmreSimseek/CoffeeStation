@@ -8,6 +8,7 @@ import { ProductModel } from '../../../Models/Coffee/coffee.model';
 import { AppConsts } from '../../../../appConsts';
 import { CategoryService } from '../../../Services/Category/category.service';
 import { BasketItemModel, BasketModel } from '../../../Models/Basket/BasketModels';
+import { UserService } from '../../../Services/User/user.service';
 
 @Component({
   selector: 'app-products',
@@ -25,6 +26,7 @@ export class ProductsComponent implements OnInit {
     private _coffeeService: CoffeeService,
     private _basketService: BasketService,
     private _storageService: StorageService,
+    private _userService: UserService,
     private _categoryService: CategoryService,
     private snackBar: MatSnackBar,
   ) {
@@ -55,20 +57,22 @@ export class ProductsComponent implements OnInit {
 
   // Sepet bilgisini getir
   getBasket(){
-    this._basketService.getUserBasket().subscribe({
-      next: (value) => {
-        this.basket = value;
-      },
-      error: (err) => {
-        console.log('GetMyBasket Error:', err.error);
-      },
-    })
+    if(this._storageService.getUserIsLoggedIn()){
+      this._basketService.getUserBasket().subscribe({
+        next: (value) => {
+          this.basket = value;
+        },
+        error: (err) => {
+          console.log('GetMyBasket Error:', err.error);
+        },
+      });
+    }
   }
 
   // Sepete ekleme işlemi
   addToBasket(coffee: ProductModel): void {
     // Eğer kullanıcı giriş yapmamışsa uyarı ver
-    if (this._storageService.getUserId() == null) {
+    if (!this._storageService.getUserIsLoggedIn()) {
       this.snackBar.open('Sepete ekleme işlemi yapabilmek için giriş yapmalısınız!', 'Kapat', {
         duration: 2000,
       });

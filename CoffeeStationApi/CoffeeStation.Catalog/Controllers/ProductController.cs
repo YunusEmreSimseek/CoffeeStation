@@ -39,7 +39,7 @@ namespace CoffeeStation.Catalog.Controllers
 
         [AllowAnonymous]
         [HttpGet("categoryId/{id}")]
-        public async Task<IActionResult> GetProductByCategoryId(string id)
+        public async Task<IActionResult> GetProductsByCategoryId(string id)
         {
             var values = await _productService.GetByCategoryIdProductAsync(id);
             return Ok(values);

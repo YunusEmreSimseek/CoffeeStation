@@ -52,29 +52,5 @@ export class LoginComponent implements OnInit {
         console.log('Login Error:', this.loginError);
       }
     });
-
-
-
-
-    // this._authService.loginUser(loginInput).subscribe({
-    //   next: (result) => {
-    //     // Kullanıcı bilgilerini local storage'a kaydeder.
-    //       this._storageService.saveUser(result);
-    //       // Kullanıcı rolüne göre yönlendirme yapar.
-    //       if(result.role === 'Admin'){
-    //         console.log('Admin girişi başarılı.');
-    //         this._authService.setUserLoggedIn(true);
-    //         this.router.navigate(['/admin']);
-    //       } else {
-    //         console.log('Kullanıcı girişi başarılı.');
-    //         this._authService.setUserLoggedIn(true);
-    //         this.router.navigate(['/home']);
-    //       }
-    // },
-    //   error: (err) => {
-    //     this.loginError = 'Geçersiz kullanıcı adı veya şifre';
-    //     console.log('Login Error:', this.loginError);
-    //   }
-    // });
   }
 }
