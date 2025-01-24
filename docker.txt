@@ -1,0 +1,62 @@
+Discount-PostgreSQL------------------------
+
+docker run -d \
+  --name DiscountPSQL \
+  -p 5432:5432 \
+  -e POSTGRES_USER=emre \
+  -e POSTGRES_PASSWORD=123456 \
+  postgres:latest
+
+---------------------------------
+IdentityServer-SQLServer------------------------
+
+  docker run -d \
+  -p 1433:1433 \
+  --name IdentitySQL \
+  -e "ACCEPT_EULA=Y" \
+  -e "MSSQL_SA_PASSWORD=Parola123456" \
+  -e "MSSQL_PID=Express" \
+  mcr.microsoft.com/mssql/server:2022-latest
+
+------------------------------------
+Catalog-MongoDB--------------------------
+
+docker run -d \
+  --name CatalogMongoDB \
+  -p 27017:27017 \
+  mongo:latest
+
+------------------------------------------
+Basket-Redis----------------------------
+
+docker run -d \
+  -p 6379:6379 \
+  --name BasketRedis \
+  redis:latest
+
+----------------------------------------
+Order-SQLServer-------------------------
+
+docker run -d \
+  -p 1453:1453 \
+  --name OrderSQL \
+  -e "ACCEPT_EULA=Y" \
+  -e "MSSQL_SA_PASSWORD=Parola123456" \
+  -e "MSSQL_PID=Express" \
+  mcr.microsoft.com/mssql/server:2022-latest
+
+---------------------------------------------
+Message-RabbitMq
+
+docker run -d \
+  --name MessageRabitMQ \
+  -p 5672:5672 \
+  -p 15672:15672 \
+  rabbitmq:3-management
+
+-------------------------------------------------
+
+
+
+
+

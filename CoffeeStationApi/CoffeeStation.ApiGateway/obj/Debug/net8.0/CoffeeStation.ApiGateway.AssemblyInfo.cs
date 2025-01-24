@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoffeeStation.ApiGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b64712cb9645ef3a60643244025f9746a23cd32")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1cbc820c37401884d5b50b731af09285d325c535")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoffeeStation.ApiGateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoffeeStation.ApiGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
