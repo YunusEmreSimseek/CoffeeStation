@@ -7,7 +7,7 @@ import { ProductModel } from '../../../Models/Coffee/coffee.model';
 import { AddressModel } from '../../../Models/Adress/AdressModels';
 import { firstValueFrom } from 'rxjs';
 
-
+// Siparişlerin gösterileceği tablo için view model
 export interface OrderViewModel {
   orderyId: string;
   userId: string;
@@ -26,7 +26,9 @@ export interface OrderViewModel {
 
 export class OrdersComponent implements OnInit {
 
+  // Tablo için gerekli değişkenler
   displayedColumns: string[] = ['orderyId', 'userId', 'productNames', 'totalPrice', 'address', 'actions'];
+  // Tablo için veri kaynağı
   dataSource: OrderViewModel[] = [];
   // EventEmitter ile toplam siparis sayisini gonderdik
   @Output() totalOrderEvent = new EventEmitter<number>();
@@ -92,11 +94,6 @@ export class OrdersComponent implements OnInit {
       console.error('Siparişleri yüklerken hata:', err);
       // Hata yönetimi (alert, snackbar vb.)
     }
-  }
-
-  // Örnek: Siparişi silmek veya başka bir işlem yapmak isterseniz
-  onDelete(orderId: string) {
-    // ...
   }
 
 

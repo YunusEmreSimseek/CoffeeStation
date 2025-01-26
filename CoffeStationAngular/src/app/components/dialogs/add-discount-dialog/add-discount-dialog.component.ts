@@ -11,7 +11,10 @@ import { CreateCuponModel } from '../../../Models/Discount/DiscountModels';
   styleUrl: './add-discount-dialog.component.css'
 })
 export class AddDiscountDialogComponent {
+
+  // İndirim formu
   discountForm: FormGroup;
+
   constructor(
     private dialogRef: MatDialogRef<AddDiscountDialogComponent>,
     private fb: FormBuilder,
@@ -24,6 +27,7 @@ export class AddDiscountDialogComponent {
   });
 }
 
+// İndirim ekleme işlemi
 onSave() {
   if (this.discountForm.invalid) {
     return;
@@ -46,6 +50,7 @@ onSave() {
   });
 }
 
+// İptal işlemi
 onCancel() {
   this.dialogRef.close();
 }

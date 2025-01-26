@@ -25,6 +25,7 @@ export class AppComponent {
     }
 }
 
+// Ziyaretci tokeni alma fonksiyonu
 takeAnonymousToken() {
   this._userService.takeAnonymousToken().subscribe((data: string) => {
     this._storageService.saveVisitorToken(data);

@@ -3,6 +3,7 @@ import { UserService } from '../../../Services/User/user.service';
 import { OrderService } from '../../../Services/Order/order.service';
 import { OrderViewModel } from '../orders/orders.component';
 
+// Istatistikler icin gerekli olan interface
 export interface Stat {
   title: string;
   value: number;
@@ -20,8 +21,8 @@ export class DashboardComponent {
   // EventEmitter ile siparisleri aliyoruz
   totalOrder: number = 0;
 
+  // Istatistikler icin gerekli olan degiskenler
   private  totalUser: number = 0;
-  // private  totalOrder: number = 0;
    stats: Stat[] = [];
 
 

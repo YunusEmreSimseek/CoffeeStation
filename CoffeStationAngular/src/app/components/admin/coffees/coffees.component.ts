@@ -14,8 +14,11 @@ import { CategoryModel } from '../../../Models/Category/CategoryModel';
 })
 export class CoffeesComponent implements OnInit {
 
+  // Tablo sütunları
   displayedColumns: string[] = ['id', 'name', 'description', 'price', 'categoryId', 'actions'];
+  // Tablo veri kaynağı
   dataSource: ProductModel[] = [];
+  // Kategoriler
   categories: CategoryModel[] = [];
 
   constructor(
@@ -44,11 +47,13 @@ export class CoffeesComponent implements OnInit {
     });
   }
 
+  // Kategori adını döndür
   chechCategoryName(categoryId: string): string {
     const category = this.categories.find(c => c.categoryId === categoryId);
     return category ? category.categoryName : '';
   }
 
+  // Kategorileri yükle
   loadCategories(){
     this._categoryService.getAllCategories().subscribe({
       next: (cats) => {

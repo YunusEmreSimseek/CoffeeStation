@@ -12,25 +12,25 @@ import { UserService } from '../../../Services/User/user.service';
   styleUrl: './admin-layout.component.css'
 })
 export class AdminLayoutComponent {
- isMenuOpen = true;
 
+  // Menu açık mı kapalı mı kontrolü
+  isMenuOpen = true;
 
-
-
-
- constructor(
+  constructor(
     public dialog: MatDialog,
     private _userService: UserService,
     private _storageService: StorageService,
     private router: Router,
     private snackBar: MatSnackBar
 
- ){}
+  ){}
 
+  // Menüyü açıp kapatmak için kullan
  toggleMenu() {
    this.isMenuOpen = !this.isMenuOpen;
  }
 
+  // Çıkış yap
  logout(): void {
 
      const dialogData: ConfirmDialogData = {

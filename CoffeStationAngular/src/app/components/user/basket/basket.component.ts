@@ -18,11 +18,15 @@ import { BasketItemModel, BasketModel } from '../../../Models/Basket/BasketModel
 })
 export class BasketComponent implements OnInit {
 
+  // tabloda gösterilecek veriler
   dataSource: MatTableDataSource<BasketItemModel> = new MatTableDataSource<BasketItemModel>([]);
   // tabloda gösterilecek sütunlar
   displayedColumns: string[] = ['image', 'name', 'price', 'quantity', 'total', 'actions'];
+  // Sepet bilgisi
   basket: BasketModel = { userId: '', basketItems: [], totalPrice: 0};
+  // Kupon uygulanmış mı
   isCouponApplied: boolean = false;
+  // Kupon bilgileri
   couponCode: string = '';
   discountRate: number = 0;
   discoundedPrice: number = 0;
@@ -42,6 +46,7 @@ export class BasketComponent implements OnInit {
     this.getUserBasket();
   }
 
+  // Kullanıcının Sepet bilgisini getirme
   getUserBasket(){
     this._basketService.getUserBasket().subscribe(data => {
       this.basket = data;

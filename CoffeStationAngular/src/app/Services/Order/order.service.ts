@@ -14,10 +14,12 @@ export class OrderService {
       private http: HttpClient,
     ) { }
 
+    // Siparis olusturma
     createOrder(order: CreateOrderModel){
       return this.http.post(this.baseUrl, order, { responseType : 'text' });
     }
 
+    // Butun siparisleri getirme
     getAllOrders(){
       return this.http.get<OrderModel[]>(this.baseUrl);
     }

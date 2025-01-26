@@ -11,7 +11,9 @@ import { UserService } from '../../Services/User/user.service';
 })
 export class RegisterComponent implements OnInit {
 
+  // Kullanıcı kayıt formu
   registerForm!: FormGroup;
+  // Kayıt sırasında oluşan hata mesajı
   registerError: string = '';
 
   constructor(
@@ -40,6 +42,7 @@ export class RegisterComponent implements OnInit {
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
 
+  // Kayıt olma işlemi
   onSubmit(): void {
     if (this.registerForm.invalid) {
       return;

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  // Kategorileri tutar
   categories: CategoryModel[] = [];
 
   constructor(

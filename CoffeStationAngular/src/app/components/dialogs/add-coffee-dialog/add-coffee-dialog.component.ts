@@ -14,7 +14,10 @@ import { AppConsts } from '../../../../appConsts';
   styleUrl: './add-coffee-dialog.component.css'
 })
 export class AddCoffeeDialogComponent implements OnInit {
+
+  // Kahve ekleme formu
   coffeeForm: FormGroup;
+  // Kategoriler
   categories: CategoryModel[] = [];
 
   constructor(
@@ -36,6 +39,7 @@ export class AddCoffeeDialogComponent implements OnInit {
     this.loadCategories();
   }
 
+  // Kategorileri yükleme
   loadCategories(){
     this._categoryService.getAllCategories().subscribe({
       next: (cats) => {
@@ -47,6 +51,7 @@ export class AddCoffeeDialogComponent implements OnInit {
     });
   }
 
+  // Kahve ekleme
   onSave() {
     if (this.coffeeForm.invalid) {
       return;
@@ -71,6 +76,7 @@ export class AddCoffeeDialogComponent implements OnInit {
     });
   }
 
+  // İptal
   onCancel() {
     this.dialogRef.close();
   }

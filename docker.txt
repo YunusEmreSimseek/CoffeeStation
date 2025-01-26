@@ -41,7 +41,7 @@ docker run -d \
   -p 1453:1453 \
   --name OrderSQL \
   -e "ACCEPT_EULA=Y" \
-  -e "MSSQL_SA_PASSWORD=Parola123456" \
+  -e "MSSQL_SA_PASSWORD=Password123456" \
   -e "MSSQL_PID=Express" \
   mcr.microsoft.com/mssql/server:2022-latest
 

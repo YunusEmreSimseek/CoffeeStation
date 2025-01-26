@@ -11,7 +11,10 @@ import { AddEditCategoryDialogComponent } from '../../dialogs/add-edit-category-
   styleUrl: './admin-categories.component.css'
 })
 export class AdminCategoriesComponent implements OnInit {
+
+    // Kategorileri listelemek için kullanılacak tablo
    displayedColumns: string[] = ['id', 'name', 'actions'];
+   // Kategorileri tutacak olan dizi
     dataSource: CategoryModel[] = [];
     constructor(
       private _categoryService: CategoryService,
@@ -21,6 +24,7 @@ export class AdminCategoriesComponent implements OnInit {
 
     ngOnInit() {this.loadCategories();}
 
+    // Butun kategorileri getirir
     loadCategories() {
       this._categoryService.getAllCategories().subscribe({
         next: (categories) => {

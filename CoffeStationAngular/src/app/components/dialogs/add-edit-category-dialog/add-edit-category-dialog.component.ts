@@ -11,8 +11,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './add-edit-category-dialog.component.css'
 })
 export class AddEditCategoryDialogComponent {
+
+  // Katagori ekleme ve güncelleme formu
   categoryForm: FormGroup;
+
+  // Ekleme ve güncelleme modu
   mode: 'add' | 'edit' = 'add';
+
+  // Gunceleme modunda güncellenecek kategori
   categoryToEdit?: CategoryModel;
 
   constructor(
@@ -35,6 +41,7 @@ export class AddEditCategoryDialogComponent {
 
   }
 
+  // Kategori ekleme ve güncelleme işlemleri
   onSave() {
     if (this.categoryForm.invalid) {
       return;
@@ -67,6 +74,7 @@ export class AddEditCategoryDialogComponent {
     }
   }
 
+  // İptal işlemi
   onCancel() {
     this.dialogRef.close();
   }

@@ -1,4 +1,3 @@
-import { AddressModel } from "../Adress/AdressModels";
 
 export interface OrderModel {
     orderId: string;

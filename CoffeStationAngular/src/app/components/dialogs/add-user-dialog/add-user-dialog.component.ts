@@ -12,6 +12,7 @@ import { CreateUserModel } from '../../../Models/User/UserModels';
 })
 export class AddUserDialogComponent {
 
+  // Kullanıcı ekleme formu
   userForm: FormGroup;
 
   constructor(
@@ -30,6 +31,7 @@ export class AddUserDialogComponent {
     });
   }
 
+  // Kullanıcı ekleme işlemi
   onSave() {
     // Form geçerli değilse işlem yapma
     if (this.userForm.invalid) {
@@ -52,6 +54,7 @@ export class AddUserDialogComponent {
     });
   }
 
+  // İptal işlemi
   onCancel() {
     this.dialogRef.close();
   }

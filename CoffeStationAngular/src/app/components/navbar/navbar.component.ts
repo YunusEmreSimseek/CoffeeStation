@@ -14,7 +14,8 @@ import { UserService } from '../../Services/User/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-   isLoggedIn$: Observable<boolean>;
+  // Kullanıcının giriş yapmış olup olmadığını kontrol etmek için kullanılır.
+  isLoggedIn$: Observable<boolean>;
 
   constructor(
     public dialog: MatDialog,
@@ -30,6 +31,7 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  // Çıkış yapma işlemi için kullanılır.
   openLogoutDialog(): void {
 
     const dialogData: ConfirmDialogData = {

@@ -11,6 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './add-address-dialog.component.css'
 })
 export class AddAddressDialogComponent {
+
+  // Adres ekleme formu
   addressForm: FormGroup;
 
   constructor(
@@ -30,7 +32,7 @@ export class AddAddressDialogComponent {
 
 
 
-
+  // Adres ekleme işlemi
   onSave() {
     if (this.addressForm.invalid) {
       return;
@@ -53,6 +55,7 @@ export class AddAddressDialogComponent {
     });
   }
 
+  // İptal butonu
   onCancel() {
     this.dialogRef.close();
   }

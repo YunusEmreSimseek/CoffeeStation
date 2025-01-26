@@ -12,7 +12,9 @@ import { AddDiscountDialogComponent } from '../../../dialogs/add-discount-dialog
 })
 export class DiscountsComponent implements OnInit {
 
+  // Kuponlar tablosu için sütunlar
   displayedColumns: string[] = ['id', 'code', 'rate', 'actions'];
+  // Kuponlar tablosu için veri kaynağı
   dataSource: GetCouponModel[] = [];
 
   constructor(

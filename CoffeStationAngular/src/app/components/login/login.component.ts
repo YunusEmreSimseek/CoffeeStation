@@ -12,7 +12,9 @@ import { UserService } from '../../Services/User/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  // Kullanici giris formu
   loginForm!: FormGroup;
+  // Kullanici giris hatası
   loginError: string = '';
 
   constructor(
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     });
     }
 
+  // Kullanıcı giriş işlemi
   onSubmit(): void {
     const loginInput: UserLoginModel = this.loginForm.value;
     this._userService.loginUser(loginInput).subscribe({
@@ -48,6 +51,7 @@ export class LoginComponent implements OnInit {
           }
     },
       error: (err) => {
+        // Kullanıcı giriş hatası
         this.loginError = 'Geçersiz kullanıcı adı veya şifre';
         console.log('Login Error:', this.loginError);
       }

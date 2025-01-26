@@ -16,8 +16,12 @@ import { UserService } from '../../../Services/User/user.service';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
+
+  // Kategori adı
   categoryName: string = '';
+  // Kategoriye ait kahveler
   coffees: ProductModel[] = [];
+  // Sepet bilgisi
   private basket: BasketModel = { userId: '', basketItems: [], totalPrice: 0 };
 
 
