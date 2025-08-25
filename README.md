@@ -9,7 +9,7 @@ Kahve ürünleri için kullanıcı ve admin akışlarını içeren, **Angular** 
 - [Mimari](#mimari)
 - [Mikroservisler](#mikroservisler)
 - [Teknolojiler](#teknolojiler)
-- [Ekranlar (Özet)](#ekranlar-özet)
+- [Ekranlar](#ekranlar)
 - [Kurulum](#kurulum)
   - [Önkoşullar](#önkoşullar)
   - [Depoyu Klonla](#depoyu-klonla)
@@ -123,8 +123,7 @@ Uygulama **mikroservis mimarisi** üzerinde; ek olarak **Katmanlı Mimari (DAL/B
 ---
 
 ### **Giriş Yapmadan Sepete Ekleme Uyarısı**
-- Kullanıcı sisteme giriş yapmadan ürün eklemek istediğinde uyarı çıkar.
-- “Giriş Yap” ekranına yönlendirme yapılır.
+- Kullanıcı sisteme giriş yapmadan ürün eklemek istediğinde önce giriş yapması için uyarı çıkar.
 ![Giriş Yapmadan Sepet Uyarısı](/screenshots/girisYapilmadanSepetUyarisi.png)
 
 ---
