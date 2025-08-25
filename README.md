@@ -71,7 +71,93 @@ Uygulama **mikroservis mimarisi** üzerinde; ek olarak **Katmanlı Mimari (DAL/B
 
 ---
 
-## Ekranlar (Özet)
+## Ekranlar
+
+## 🌐 Kullanıcı Arayüzü
+
+### **Ana Sayfa - Kategori Listesi**
+- Uygulamaya girildiğinde kullanıcıyı ilk olarak kahve kategorileri karşılar.
+- Her kategori kartında görsel ve kategori adı yer alır.
+- “Keşfet” butonuna basıldığında seçilen kategoriye ait kahveler listelenir.
+![Ana Sayfa - Kategori Listesi](/screenshots/anaSayfaKategoriListesi.png)
+
+---
+
+### **Kategoriye Ait Kahveler**
+- Kullanıcı seçtiği kategoriye ait tüm kahveleri bu sayfada görebilir.
+- Kahve kartlarında ürün görseli, adı, tadım notları ve fiyat bilgisi bulunur.
+- “Sepete Ekle” butonu ile kahveler sepete eklenebilir.
+![Kategoriye Ait Kahveler](/screenshots/anaSayfaKahveListesi.png)
+
+---
+
+### **Giriş Yap Ekranı**
+- Sisteme giriş yapmak için kullanıcı adı ve şifre bilgisi girilir.
+- Henüz hesabı olmayan kullanıcılar “Kayıt Ol” sayfasına yönlendirilir.
+![Giriş Yap](/screenshots/girisYap.png)
+
+---
+
+### **Kayıt Ol Ekranı**
+- Yeni kullanıcı kaydı için gerekli bilgiler:
+  - Kullanıcı adı, isim, soyisim, e-posta, şifre ve şifre tekrar alanları.
+- Kaydolan kullanıcılar otomatik olarak müşteri rolünde sisteme eklenir.
+![Kayıt Ol](/screenshots/kayitOl.png)
+
+---
+
+### **Sepet Yönetimi**
+- Kullanıcıların sepete ekledikleri ürünler listelenir.
+- Her ürün için görsel, adı, fiyatı, miktarı ve toplam tutar gösterilir.
+- Ürün miktarı artırılabilir, azaltılabilir veya tamamen silinebilir.
+- “Ödeme Yap” butonu ile sipariş süreci başlatılır.
+![Sepet](/screenshots/sepet.png)
+
+---
+
+### **Sepete Ürün Ekleme**
+- Kullanıcı bir ürünü sepete eklediğinde bildirim gösterilir.
+- Aynı ürün birden fazla kez sepete eklenebilir.
+![Sepete Eklendi Bildirimi](/screenshots/sepeteEklendiBildirimi.png)
+
+---
+
+### **Giriş Yapmadan Sepete Ekleme Uyarısı**
+- Kullanıcı sisteme giriş yapmadan ürün eklemek istediğinde uyarı çıkar.
+- “Giriş Yap” ekranına yönlendirme yapılır.
+![Giriş Yapmadan Sepet Uyarısı](/screenshots/girisYapilmadanSepetUyarisi.png)
+
+---
+
+### **Kupon Yönetimi (Kullanıcı)**
+- Kullanıcılar alışverişlerinde indirim kuponu kullanabilir.
+- Kupon kodu girildikten sonra “Uygula” butonuna basıldığında toplam tutar güncellenir.
+![Kuponlu Sepet](/screenshots/kuponluSepet.png)
+
+---
+
+### **Kupon Yönetimi (Admin Panelinden Kupon Ekleme)**
+- Admin panelinden kupon ekleme işlemleri yapılabilir.
+- Kullanıcılar bu kuponları alışveriş sırasında kullanabilir.
+![Yeni Kupon Ekle](/screenshots/yeniKuponEkle.png)
+![Kupon Yönetimi](/screenshots/kuponYonetimi.png)
+
+---
+
+### **Adres Ekleme**
+- Sipariş sürecinde kullanıcı adres bilgilerini ekleyebilir.
+- İlçe, şehir ve detaylı adres alanları zorunludur.
+![Adres Ekle](/screenshots/sepetteAdresEkle.png)
+
+---
+
+### **Yüksek Tutar Senaryosu**
+- Sepete çok sayıda ürün eklenmesi durumunda detaylı bir özet gösterilir.
+- Toplam fiyat ve her bir ürünün alt toplamı listelenir.
+![Yüksek Tutar Senaryosu](/screenshots/yuksekTutarliSepet.jpeg)
+
+---
+
 ## 🛠 Admin Paneli
 
 ### **Dashboard**
