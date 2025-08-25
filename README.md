@@ -76,7 +76,7 @@ Uygulama **mikroservis mimarisi** üzerinde; ek olarak **Katmanlı Mimari (DAL/B
 
 ### **Dashboard**
 Admin paneli ana sayfasında toplam kullanıcı sayısı, aktif siparişler, günlük ziyaretçi sayısı ve toplam gelir bilgileri görüntülenir.  
-![Admin Paneli - Dashboard](assets/screenshots/adminPaneliDashboard.png)
+![Admin Paneli - Dashboard](/screenshots/adminPaneliDashboard.png)
 
 ---
 
@@ -84,24 +84,24 @@ Admin paneli ana sayfasında toplam kullanıcı sayısı, aktif siparişler, gü
 - Kahve ekleme, silme ve güncelleme işlemleri yapılabilir.
 - Kahveler liste halinde gösterilir.
 - Yeni kahve eklerken kahve adı, açıklama, fiyat ve kategori bilgisi girilir.
-![Admin Paneli - Kahve Listesi](assets/screenshots/adminPaneliKahveListesi.png)
-![Admin Paneli - Yeni Kahve Ekle](assets/screenshots/adminPaneliKahveEkle.png)
+![Admin Paneli - Kahve Listesi](/screenshots/adminPaneliKahveListesi.png)
+![Admin Paneli - Yeni Kahve Ekle](/screenshots/adminPaneliKahveEkle.png)
 
 ---
 
 ### **Kategori Yönetimi**
 - Kategori ekleme, düzenleme ve silme işlemleri yapılabilir.
 - Kategoriler tablo halinde görüntülenir.
-![Admin Paneli - Kategori Listesi](assets/screenshots/adminPaneliKategoriListesi.png)
-![Admin Paneli - Yeni Kategori Ekle](assets/screenshots/adminPaneliKategoriEkle.png)
+![Admin Paneli - Kategori Listesi](/screenshots/adminPaneliKategoriListesi.png)
+![Admin Paneli - Yeni Kategori Ekle](/screenshots/adminPaneliKategoriEkle.png)
 
 ---
 
 ### **Kullanıcı Yönetimi**
 - Yeni kullanıcı ekleme ve mevcut kullanıcıları listeleme işlemleri yapılabilir.
 - Kullanıcı adı, e-posta, rol (Admin/User) ve diğer bilgiler yönetilebilir.
-![Admin Paneli - Kullanıcı Listesi](assets/screenshots/adminPaneliKullaniciListesi.png)
-![Admin Paneli - Yeni Kullanıcı Ekle](assets/screenshots/adminPaneliKullaniciEkle.png)
+![Admin Paneli - Kullanıcı Listesi](/screenshots/adminPaneliKullaniciListesi.png)
+![Admin Paneli - Yeni Kullanıcı Ekle](/screenshots/adminPaneliKullaniciEkle.png)
 
 ---
 
