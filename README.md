@@ -72,11 +72,36 @@ Uygulama **mikroservis mimarisi** üzerinde; ek olarak **Katmanlı Mimari (DAL/B
 ---
 
 ## Ekranlar (Özet)
-- **Login/Register:** Kimlik doğrulama akışı; role göre yönlendirme.
-- **Home & Product:** Kategori bazlı ürün listeleme.
-- **Basket:** Ürün miktarı artır/azalt/sil, kupon kodu ile indirim.
-- **Address & Checkout:** Adres ekleme ve sipariş tamamlama.
-- **Admin Panel:** Dashboard istatistikleri, kullanıcı/ürün/kategori/sipariş yönetimi.
+## 🛠 Admin Paneli
+
+### **Dashboard**
+Admin paneli ana sayfasında toplam kullanıcı sayısı, aktif siparişler, günlük ziyaretçi sayısı ve toplam gelir bilgileri görüntülenir.  
+![Admin Paneli - Dashboard](assets/screenshots/adminPaneliDashboard.png)
+
+---
+
+### **Kahve Yönetimi**
+- Kahve ekleme, silme ve güncelleme işlemleri yapılabilir.
+- Kahveler liste halinde gösterilir.
+- Yeni kahve eklerken kahve adı, açıklama, fiyat ve kategori bilgisi girilir.
+![Admin Paneli - Kahve Listesi](assets/screenshots/adminPaneliKahveListesi.png)
+![Admin Paneli - Yeni Kahve Ekle](assets/screenshots/adminPaneliKahveEkle.png)
+
+---
+
+### **Kategori Yönetimi**
+- Kategori ekleme, düzenleme ve silme işlemleri yapılabilir.
+- Kategoriler tablo halinde görüntülenir.
+![Admin Paneli - Kategori Listesi](assets/screenshots/adminPaneliKategoriListesi.png)
+![Admin Paneli - Yeni Kategori Ekle](assets/screenshots/adminPaneliKategoriEkle.png)
+
+---
+
+### **Kullanıcı Yönetimi**
+- Yeni kullanıcı ekleme ve mevcut kullanıcıları listeleme işlemleri yapılabilir.
+- Kullanıcı adı, e-posta, rol (Admin/User) ve diğer bilgiler yönetilebilir.
+![Admin Paneli - Kullanıcı Listesi](assets/screenshots/adminPaneliKullaniciListesi.png)
+![Admin Paneli - Yeni Kullanıcı Ekle](assets/screenshots/adminPaneliKullaniciEkle.png)
 
 ---
 
