@@ -135,14 +135,6 @@ Uygulama **mikroservis mimarisi** üzerinde; ek olarak **Katmanlı Mimari (DAL/B
 
 ---
 
-### **Kupon Yönetimi (Admin Panelinden Kupon Ekleme)**
-- Admin panelinden kupon ekleme işlemleri yapılabilir.
-- Kullanıcılar bu kuponları alışveriş sırasında kullanabilir.
-![Yeni Kupon Ekle](/screenshots/yeniKuponEkle.png)
-![Kupon Yönetimi](/screenshots/kuponYonetimi.png)
-
----
-
 ### **Adres Ekleme**
 - Sipariş sürecinde kullanıcı adres bilgilerini ekleyebilir.
 - İlçe, şehir ve detaylı adres alanları zorunludur.
@@ -179,6 +171,14 @@ Admin paneli ana sayfasında toplam kullanıcı sayısı, aktif siparişler, gü
 - Kategoriler tablo halinde görüntülenir.
 ![Admin Paneli - Kategori Listesi](/screenshots/adminPaneliKategoriListesi.png)
 ![Admin Paneli - Yeni Kategori Ekle](/screenshots/adminPaneliKategoriEkle.png)
+
+---
+
+### **Kupon Yönetimi**
+- Kupon ekleme işlemleri yapılabilir.
+- Kullanıcılar bu kuponları alışveriş sırasında kullanabilir.
+![Yeni Kupon Ekle](/screenshots/yeniKuponEkle.png)
+![Kupon Yönetimi](/screenshots/kuponYonetimi.png)
 
 ---
 
