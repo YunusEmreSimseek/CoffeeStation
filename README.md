@@ -145,7 +145,7 @@ Uygulama **mikroservis mimarisi** üzerinde; ek olarak **Katmanlı Mimari (DAL/B
 ### **Yüksek Tutar Senaryosu**
 - Sepete çok sayıda ürün eklenmesi durumunda detaylı bir özet gösterilir.
 - Toplam fiyat ve her bir ürünün alt toplamı listelenir.
-![Yüksek Tutar Senaryosu](/screenshots/yuksekTutarliSepet.jpeg)
+![Yüksek Tutar Senaryosu](/screenshots/yuksekTutarliSepet.png)
 
 ---
 
