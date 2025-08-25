@@ -164,5 +164,5 @@ npm start   # veya ng serve
 ---
 
 ## Geliştiriciler
-- **Tuğba Aktürk** — [GitHub](https://github.com/)
-- **Yunus Emre Şimşek** — [GitHub](https://github.com/)
+- **Tuğba Aktürk** — [GitHub](https://github.com/tgbktrk)
+- **Yunus Emre Şimşek** — [GitHub](https://github.com/YunusEmreSimseek)
